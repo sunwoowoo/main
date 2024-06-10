@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>  <!-- 현재 파일이 XML 파일이기 때문에 맨 위에 XML 선언이 온다 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd"> <!-- 규칙을 정의한 DTD 선언 -->
+
+<mapper namespace="com.bitstudy.app.dao.CommentMapper">
+
+
+    <!--    댓글 작성자만 특정 게시글의 댓글 삭제-->
+    <delete id="delete" parameterType="map">
+        delete from comment where c_no=#{c_no} and c_writer=#{c_writer} <!-- and bno=#{bno}-->
+    </delete>
+
+    <!--    특정 게시글의 댓글 개수 -->
+    <select id="count" parameterType="int" resultType="int">
+        select count(*) from comment where bno=#{bno}
+    </select>
+
+    <!--    특정 게시글의 댓글 전체 다 불러오기-->
+    <select id="selectAll" parameterType="int" resultType="commentDto">
+        select * from comment
+        where b_no = #{b_no}
+        order by c_date desc, c_no desc
+    </select>
+
+
+
+    <!--    댓글 등록-->
+    <insert id="insert" parameterType="CommentDto">
+        <!--        insert into comment-->
+        <!--        values-->
+        <!--        (null, #{bno}, #{comment}, #{commenter}, now())-->
+
+        insert into comment
+        (b_no, c_content, c_writer, c_date)
+        values
+        (#{b_no}, #{c_content}, #{c_writer}, now())
+    </insert>
+
+
+    <!--    수정 - 댓글 작성자만 수정 가능하게 하기 -->
+    <update id="update" parameterType="CommentDto">
+        update comment
+        set c_content=#{c_content}
+        where c_no=#{c_no} and c_writer=#{c_writer}
+    </update>
+
+
+</mapper>

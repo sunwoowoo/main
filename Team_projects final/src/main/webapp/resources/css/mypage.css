@@ -1,0 +1,431 @@
+.main {
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.my_page_box{
+    width: 20%
+}
+
+.side_my_page_title  {
+    font-size: 26px;
+    font-weight: 900;
+
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-bottom: 2px solid;
+}
+
+.select_my_page {
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(190, 190, 190);
+
+    cursor: pointer;
+}
+.main_box{
+    position: relative;
+    width: 75%;
+    height: 500px;
+}
+/* 마이페이지*/
+.main_my_page_box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 5);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+
+    opacity: 0;
+}
+/* 왼쪽 마이페이지 박스*/
+.my_imf_box_left{
+    height: 100%;
+    width: 40%;
+}
+
+.my_name{
+    width: 100%;
+    height: 70%;
+    display: flex;
+    justify-content: center;
+}
+/*프로필 정보*/
+.user_img_file{
+    position: relative;
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+}
+.my_file {
+    display: inline-block;
+    width: 73px;
+    height: 24px;
+    cursor: pointer;
+    color: #333;
+    border-radius: 4px;
+    margin-top: 30px;
+
+    display: none;
+}
+.my_see_file {
+    font-size: 13px;
+    position: absolute;
+    top: 40px;
+    padding: 6px 6px;
+    cursor: pointer;
+    border: 0;
+    background-color: #089175;
+    color: white;
+    font-weight: 600;
+
+}
+.btn_del{
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    border: 2px solid #089175;
+}
+/* 오른쪽 마이페이지 박스*/
+.my_imf_box_right{
+    height: 100%;
+    width: 60%;
+}
+.user_list_box1{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.id_pw_box{
+    width: 50%;
+    height: 100%;
+    font-size: 20px;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+.id_pw_box > div{
+    padding: 5px;
+}
+.name_email_birth_box{
+    width: 50%;
+    height: 100%;
+    border-radius: 10px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.user_list_box2{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.user_list_box2 > div{
+    width: 50%;
+    height: 100%;
+}
+.name_email_birth_box > div{
+    padding-top: 20px;
+}
+.user_list_box2 > div > input{
+    height: 50px;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 20px;
+}
+
+.see_imf {
+    outline: none;
+    border: 0;
+    border: 2px solid #089175;
+    padding: 6px 10px ;
+    box-sizing: border-box;
+}
+.my_name > img {
+    width: 100%;
+    height: 100%;
+    margin-top: 15px;
+    border-radius: 50%;
+    border: 3px solid #089175;
+    box-sizing: border-box;
+    background: url("/resources/img/logo/free-icon-user-727379.jpg") no-repeat center / cover;
+}
+
+#btn_modify {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+
+    padding: 6px 12px;
+    cursor: pointer;
+    border: 0;
+    background-color: #089175;
+    color: white;
+    font-weight: 600;
+
+}
+.btn_del {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    border: 0;
+    background-color: #089175;
+    color: white;
+    font-weight: 600;
+}
+
+/*---------------------------------------------------------------------*/
+.pick_imf_box{
+    position: absolute;
+    width: 100%;
+    height: 100%; /*여기 지워야함*/
+    top: 0px;
+    left: 0;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 5);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px; /*여기 지워야함*/
+}
+.my_review_box{
+    position: absolute;
+    width: 100%;
+    height: 100%; /*여기 지워야함*/
+    top: 0px;
+    left: 0;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 5);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;   /*여기 지워야함*/
+}
+
+/* 추가로 넣을거  */
+.my_review_box {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 750px;
+    padding: 20px 0;
+    opacity: 0;
+    /*수정*/
+    display: none;
+}
+.my_review_title {
+    font-size: 26px;
+    font-weight: 900;
+    border-bottom: 2px solid;
+    box-sizing: border-box;
+}
+.my_review_txt {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    border: 1px solid;
+    /*수정*/
+    display: none;
+}
+
+
+.opacity{
+    opacity: 1;
+}
+
+.opacity_down {
+    animation: opacity_down  1s forwards;
+    z-index: 99999;
+}
+
+.opacity_up {
+    animation: opacity_up  1s .5s forwards;
+    z-index: 1;
+}
+
+@keyframes opacity_down {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
+@keyframes opacity_up {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+
+
+@media screen and (max-width: 800px){
+    .footer {
+        padding-top: 0px;
+    }
+    .my_name > img {
+        width: 100%;
+        height: 100%;
+        margin-top: 0px;
+    }
+    .content_area{max-width: 800px}
+    .main {padding-top: 0px; flex-direction: column;}
+    .main_box {width: 100%;}
+    .my_page_box {width: 100%;}
+
+    .btn_del {
+        right: 0;
+        bottom: 72px;
+    }
+    .my_file {
+        margin-top: 15px;
+    }
+
+    .my_see_file {
+        top: 10px;
+    }
+    .id_pw_box {
+        margin-left: 15px;
+        font-size: 14px;
+    }
+    .name_email_birth_box {
+        font-size: 14px;
+    }
+    .fa{
+        font-size: 14px;
+    }
+    .my_name {
+        height: 55%;
+    }
+    .id_pw_box > div {
+        padding: 0px;
+    }
+    .side_my_page_txt {
+        display: flex;
+        gap: 15px;
+    }
+    .pick_imf_box {
+        padding: 0;
+    }
+    .my_review_box {
+        padding: 0;
+    }
+    .reservation_imf_box {
+        padding: 0;
+    }
+    .select_my_page {border-bottom: 0px;}
+    .main_my_page_box {
+        margin-top: 50px;
+        width: 100%;
+    }
+    .my_imf_box_right {
+        height: auto;
+        display: flex;
+        width: 45%;
+        height: 80%;
+        align-items: center;
+        flex-direction: column;
+
+    }
+    .my_imf_box_left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 80%;
+        width: 50%;
+    }
+    .my_name {
+        width: 220px;
+        height: 220px;
+    }
+    .user_list_box2 {
+        position: absolute;
+        bottom: -30px;
+        left: 10px;
+    }
+    #btn_modify {
+        bottom: 38px;
+        right: 20px;
+    }
+    .id_pw_box {
+        margin-left: 0px;
+        font-size: 14px;
+        padding: 0;
+    }
+    .user_list_box1 {
+        width: auto;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 550px){
+    .content_area{
+        max-width: 550px;
+    }
+    .btn_del {
+        right: auto;
+
+        bottom: 35px;
+    }
+    .user_list_box1 {
+
+        margin-left: 30px;
+    }
+    .user_list_box2 > div > input {
+        margin-top: 10px;
+    }
+    .user_list_box2 {
+        bottom: -65px;
+    }
+    #btn_modify {
+        bottom: 72px;
+    }
+    .side_my_page_title {
+        font-size: 20px;
+    }
+    .my_page_box {
+        display: block;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .side_my_page_txt {
+        text-align: center;
+        display: flex;
+        gap: 10px;
+        font-size: 13px;
+        align-items: center;
+
+    }
+    .main_my_page_box {
+        margin-top: 0;
+    }
+}

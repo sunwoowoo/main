@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd"> <!-- 규칙을 정의한 DTD 선언 -->
+
+<mapper namespace="com.bitstudy.app.dao.korea_tour_commentMapper">
+    <!--    모든 댓글 삭제-->
+    <delete id="deleteAll">
+        truncate k_comment
+    </delete>
+
+    <!-- (관리자용) 특정 게시글의 모든 댓글 삭제-->
+    <delete id="deleteForAdmin" parameterType="map">
+        delete from k_comment where c_no=#{c_no}
+    </delete>
+
+<!--    &lt;!&ndash;    댓글 작성자만 특정 게시글의 댓글 삭제&ndash;&gt;-->
+<!--    <delete id="delete" parameterType="map">-->
+<!--        delete from k_comment where c_no=#{c_no} and c_commenter=#{c_commenter} &lt;!&ndash; and bno=#{bno}&ndash;&gt;-->
+<!--    </delete>-->
+
+    <!--    특정 게시글의 댓글 개수 -->
+    <select id="count" parameterType="int" resultType="int">
+        select count(*) from k_comment where k_no=#{k_no}
+    </select>
+
+    <!--    특정 게시글의 댓글 전체 다 불러오기-->
+<!--    <select id="selectAll" parameterType="int" resultType="ktcDto">-->
+<!--        select * from k_comment-->
+<!--        where k_no = #{k_no}-->
+<!--        order by c_regdate desc, c_no desc-->
+<!--    </select>-->
+
+
+
+    <!--    댓글 등록-->
+<!--    <insert id="insert" parameterType="ktcDto">-->
+<!--        &lt;!&ndash;        insert into comment&ndash;&gt;-->
+<!--        &lt;!&ndash;        values&ndash;&gt;-->
+<!--        &lt;!&ndash;        (null, #{bno}, #{comment}, #{commenter}, now())&ndash;&gt;-->
+
+<!--        insert into k_comment-->
+<!--        (k_no, c_content, c_commenter, c_regdate)-->
+<!--        values-->
+<!--        (#{k_no}, #{c_content}, #{c_commenter}, now())-->
+<!--        &lt;!&ndash;  빈 칸: 물통안에 비어있는거, null: 아예 없는거. &ndash;&gt;-->
+<!--    </insert>-->
+
+
+    <!--    수정 - 댓글 작성자만 수정 가능하게 하기 -->
+<!--    <update id="update" parameterType="ktcDto">-->
+<!--        update k_comment-->
+<!--        set c_content=#{c_content}-->
+<!--        where c_no=#{c_no} and c_commenter=#{c_commenter}-->
+<!--    </update>-->
+
+
+
+    <!-- 댓글목록뽑아오기 즉시실행 -->
+    <select id="selectAll" parameterType="int" resultType="ktcDto">
+        WITH RECURSIVE cte AS (
+        SELECT
+        c.c_no,
+        c.c_content,
+        c.c_regdate,
+        c.c_update,
+        c.k_no,
+        c.c_commenter,
+        c.parent_c_no,
+        c.c_state,
+        1 AS LEVEL,
+        CAST(LPAD(c.c_no, 12, '0') AS CHAR(255)) AS SORT_PATH
+        FROM k_comment c
+        left JOIN user u ON c.c_commenter = u.id
+        WHERE c.parent_c_no IS NULL
+
+        UNION ALL
+
+        SELECT
+        c.c_no,
+        c.c_content,
+        c.c_regdate,
+        c.c_update,
+        c.k_no,
+        c.c_commenter,
+        c.parent_c_no,
+        c.c_state,
+        cte.LEVEL + 1,
+        CONCAT(cte.SORT_PATH, ',', LPAD(c.c_no, 12, '0'))
+        FROM k_comment c
+        left JOIN user u ON c.c_commenter = u.id
+        INNER JOIN cte ON c.parent_c_no = cte.c_no
+        )
+        SELECT
+        LEVEL,
+        c_no,
+        c_content,
+        c_regdate,
+        k_no,
+        c_commenter,
+        parent_c_no,
+        c_state
+        FROM cte
+        where k_no = #{k_no}
+        ORDER BY SORT_PATH;
+
+    </select>
+
+    <!-- 댓글추가 -->
+    <insert id="insert" parameterType="ktcDto">
+
+<!--        insert into k_comment-->
+<!--        values-->
+<!--        (null, #{c_content}, #{c_commenter},#{k_no},-->
+<!--        &lt;!&ndash; 일반댓글인 경우 &ndash;&gt;-->
+<!--        <choose>-->
+<!--            <when test="parent_c_no == null ">-->
+<!--                -->
+<!--            </when>-->
+<!--        </choose>-->
+<!--        <if test="parent_c_no == null ">-->
+<!--            NULL-->
+<!--        </if>-->
+<!--        &lt;!&ndash; 답글인 경우 &ndash;&gt;-->
+<!--        <if test="parent_c_no != 0 ">-->
+<!--            #{parent_c_no}-->
+<!--        </if>-->
+<!--        ,#{c_state}, now(), null);-->
+
+
+        insert into k_comment
+        ( c_content, c_commenter, k_no, parent_c_no, c_state, c_regdate)
+        values
+        (#{c_content}, #{c_commenter}, #{k_no},#{parent_c_no}, #{c_state}, now())
+    </insert>
+
+
+
+<!--    &lt;!&ndash; 댓글삭제 &ndash;&gt;-->
+<!--    <update id="delete" parameterType="map">-->
+<!--        UPDATE REPLY_S  SET-->
+<!--        REPLY_ST = 'Y'-->
+<!--        WHERE REPLY_NO = ${replyNo}-->
+<!--        update k_comment set-->
+<!--        c_state = 'D'-->
+<!--        where c_no=#{c_no} and c_commenter=#{c_commenter}-->
+<!--    </update>-->
+
+    <!-- 댓글수정 -->
+    <update id="update" parameterType="ktcDto">
+        update k_comment
+        set c_content=#{c_content}, c_regdate=#{c_regdate} , c_update= now()
+        where c_no=#{c_no} and c_commenter=#{c_commenter} and c_state = "N"
+    </update>
+
+
+    <!--    댓글 작성자만 특정 게시글의 댓글 삭제-->
+    <update id="delete" parameterType="map">
+<!--        delete from k_comment where c_no=#{c_no} and c_commenter=#{c_commenter} and c_state = "N"&lt;!&ndash; and bno=#{bno}&ndash;&gt;-->
+        update k_comment set c_state = "D" where c_no=#{c_no} and c_commenter=#{c_commenter}
+
+    </update>
+
+</mapper>

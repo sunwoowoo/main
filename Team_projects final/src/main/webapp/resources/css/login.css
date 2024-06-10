@@ -1,0 +1,100 @@
+.main {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+.login_box > h1 {
+    color: #046450;
+}
+
+.login_box {
+    width: 300px;
+    height: 400px;
+    text-align: center;
+
+    padding: 50px 50px 100px;
+
+    border: 2px solid #089175;
+}
+
+.login_box {
+    display: flex;
+    flex-direction: column;
+}
+
+.user_password,
+.user_id {
+    margin-top: 30px;
+    height: 48px;
+    line-height: 16px;
+
+    font-size: 14px;
+    padding: 0 0px 0 20px;
+
+    border: 0;
+    border: 1px solid #d3d3d3;
+    outline: none;
+}
+.remember_id {
+    padding-top: 20px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+font-size: 12px;
+                       
+}
+
+.login_btn {
+    margin-top: 35px;
+    height: 48px;
+    text-align: center;
+    background-color: #046450;
+    color: white;
+    font-weight: 900;
+    font-size: 12px;
+    border: 0;
+}
+
+
+.mini_circle{
+
+    height: 4px;
+    width: 4px;
+    border-radius: 4px;
+    background-color: #d3d3d3;
+}
+
+.find_box {
+    margin-top: 20px;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    gap: 7px;
+    justify-content: center;
+}
+
+
+
+@media screen and (max-width: 420px){
+    .content_area{
+        max-width: 420px;
+    }
+    .main {
+        margin-top: 0px;
+
+    }
+    .login_box {
+        width: 100%;
+        height: 400px;
+        text-align: center;
+    
+        padding: 50px 50px 100px;
+    
+        border: 2px solid #089175;
+    }
+
+}   

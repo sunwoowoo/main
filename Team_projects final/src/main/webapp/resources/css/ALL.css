@@ -1,0 +1,700 @@
+body{
+    margin: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(../포토_폴리오-img/main.jpg) no-repeat center /cover;
+    background-attachment: fixed;
+}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    text-decoration: none;
+}
+li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+h1{
+    padding: 0;
+    margin: 0;
+}
+/* header */
+header{
+    width: 100%;
+    height: 100px; 
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+    font-weight: 900;
+}
+header > div{
+    font-size: 30px;
+    margin-right: 100px;
+    margin-left: 100px;
+    line-height: 100px;
+    cursor: pointer;
+}
+header:hover{
+    background: #ffffff75;
+    color: black !important;
+}
+header > div:hover{
+    color: thistle;
+}
+/* main */
+main{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 80px;
+}
+.main_banner{
+    width: 100%;
+    height: 800px;
+    position: relative;
+}
+.main_baaner_box{
+    width: 100%;
+    height: 95%;
+    position: absolute;
+    opacity: 0;
+    transition: all 1s;
+    display: flex;
+}
+.banner_1> div{
+    width: calc((100% - (30px * 3))/ 3);
+    height: calc(100% - 30px);
+    margin-left: 30px;
+    margin-top: 30px;
+    margin-right: 30px;
+    transition: 1s;
+}
+.banner_1> div:hover{
+    border-radius: 50%;
+}
+.banner_11{background:url(https://cdn1-aka.makeshop.co.kr/shopimages/xexymix/0350020005562.jpg?1706604786)no-repeat center / cover}
+.banner_12{background:url(https://cdn1-aka.makeshop.co.kr/shopimages/xexymix/0330030002512.jpg?1698828938)no-repeat center / cover}
+.banner_13{background:url(https://xexymix.jpg3.kr/xexymix/img/ETC/CP/2024/01j0/720/720_wh.jpg)no-repeat center / cover}
+/* banner_2 */
+.banner_21{
+    width: 100%;
+    height: 100%;
+    background: no-repeat center /cover;
+}
+
+video::-webkit-media-controls-fullscreen-button {display: none;} 
+video::-webkit-media-controls-play-button {display: none;} 
+video::-webkit-media-controls-timeline {display: none;} 
+video::-webkit-media-controls-current-time-display{display: none;} 
+video::-webkit-media-controls-time-remaining-display {display: none;} 
+video::-webkit-media-controls-mute-button {display: none;} 
+video::-webkit-media-controls-volume-slider {display: none;}
+/* banner_3 */
+.banner_31{
+    width: 30%;
+    height: calc(100% - 30px);
+    margin-top: 30px;
+    background: url(https://cdn1-aka.makeshop.co.kr/shopimages/xexymix/0110100008143.jpg?1711005869)no-repeat center / cover;
+}
+.banner_32{
+    width: 40%;
+    height: calc(100% - 30px);
+    margin-top: 30px;
+    overflow: hidden;
+}
+/*  */
+.banner_32_img_box{ width: 100%; height: 100%; overflow: hidden;}
+.banner_32_warp { width: 100%; height: 100%; transform: scale(1.2);}
+.banner_32_sw { width: 100%; height: 100%; transition: .1s ease-out; }
+.banner_32_box { width: 100%; height: 100%; background: url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/TOP/ST/2023/04h2/720/720_gr.jpg)no-repeat center /cover;}
+/*  */
+.banner_33{
+    width: 30%;
+    height: calc(100% - 30px);
+    margin-top: 30px;
+}
+.banner_33 > div{
+    width: 100%;
+    height: 50%;
+    display: flex;
+}
+.banner_33_11{
+    width: calc(50% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+    height: calc(100% - 10px);
+    margin-bottom: 10px;
+    animation: banner_33_11 3s infinite;
+}
+@keyframes banner_33_11{
+    0%{background: url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_nv.jpg) no-repeat center / cover;}
+    20%{background: url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_nv.jpg) no-repeat center / cover;}
+    40%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_bk.jpg) no-repeat center / cover;}
+    60%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_bk.jpg) no-repeat center / cover;}
+    80%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_lm.jpg) no-repeat center / cover;}
+    100%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XMMST04J2_lm.jpg) no-repeat center / cover;}
+}
+.banner_33_12{
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    height: calc(100% - 10px);
+    margin-bottom: 10px;
+    animation: banner_33_12 3s infinite;
+}
+@keyframes banner_33_12{
+    0%{background: url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_pk.jpg) no-repeat center / cover;}
+    20%{background: url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_pk.jpg) no-repeat center / cover;}
+    40%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_iv.jpg) no-repeat center / cover;}
+    60%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_iv.jpg) no-repeat center / cover;}
+    80%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_bk.jpg) no-repeat center / cover;}
+    100%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/TOP/MT/2024/20j1/720/720_bk.jpg) no-repeat center / cover;}
+}
+.banner_33_21{
+    width: calc(50% - 20px);
+    margin-right: 10px;
+    margin-left: 10px;
+    height: calc(100% - 10px);
+    margin-bottom: 10px;
+    animation: banner_33_21 3s infinite;
+}
+@keyframes banner_33_21{
+    0%{background: url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_bk.jpg) no-repeat center / cover;}
+    20%{background: url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_bk.jpg) no-repeat center / cover;}
+    40%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_bg.jpg) no-repeat center / cover;}
+    60%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_bg.jpg) no-repeat center / cover;}
+    80%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_gr.jpg) no-repeat center / cover;}
+    100%{background:url(https://xexymix.jpg3.kr/xexymix/img/WOMAN/T/BOTTOM/TP/2023/20h3/720/tp20h3_720_gr.jpg) no-repeat center / cover;}
+}
+.banner_33_22{
+    width: calc(50% - 10px);
+    margin-right: 10px;
+    height: calc(100% - 10px);
+    margin-bottom: 10px;
+    animation: banner_33_22 3s infinite;
+}
+@keyframes banner_33_22{
+    0%{background: url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_3.jpg) no-repeat center / cover;}
+    20%{background: url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_3.jpg) no-repeat center / cover;}
+    40%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_1.jpg) no-repeat center / cover;}
+    60%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_1.jpg) no-repeat center / cover;}
+    80%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_2.jpg) no-repeat center / cover;}
+    100%{background:url(https://xexymix.jpg3.kr/xexymix/image/multiimg/XT2193G_2.jpg) no-repeat center / cover;}
+}
+/* 상자 추가 */
+.line{
+    gap: 10px;
+    position: absolute;
+    display: flex;
+    bottom: 1px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+}
+.line_list{
+    width: 100px;
+    height: 20px;
+    background: #fff;
+    border: 1px solid #555;
+}
+.line_active{
+    background: blueviolet;
+}
+/* sec1 */
+.sec1{
+    width: 100%;
+    height: 800px;
+    border-bottom: 2px solid darkorange;
+}
+.sec1_box_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.sec1_box_L{
+    width: 20%;
+    height: 100%;
+}
+.sec1_box_L_list{
+    width: calc(100% - 60px);
+    margin-right: 30px;
+    height: calc((100% - 80px) / 5);
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    background: #fff;
+    font-size: 30px;
+    line-height: 150px;
+    font-weight: 900;
+    cursor: pointer;
+}
+.sec_1_L1{background: black;color: #fff;}
+/* sec1_ R */
+.sec1_box_R{
+    width: 80%;
+    height: 100%;
+    position: relative;
+}
+.sec1_box_R_list{
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: absolute;
+    overflow: hidden;
+}
+.sec1_box_L_list:hover{background: black !important; color: #fff !important;}
+.sec1_box_R_box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+}
+.sec1_box_R_box:nth-child(1){right: 0;}
+/* sec2 */
+.sec2{
+    width: 100%;
+    height: 800px;
+    border-bottom: 2px solid darkorange;
+}
+.sec2_box_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.sec2_box_L{
+    width: 20%;
+    height: 100%;
+}
+.sec2_box_L_list{
+    width: calc(100% - 60px);
+    margin-right: 30px;
+    height: calc((100% - 80px) / 5);
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 30px;
+    line-height: 150px;
+    background: #fff;
+    font-weight: 900;
+    cursor: pointer;
+}
+.sec_2_L1{background: black;color: #fff;}
+/* sec2 R */
+.sec2_box_R{
+    width: 80%;
+    height: 100%;
+    position: relative;
+}
+.sec2_box_R_list{
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    overflow: hidden;
+    position: absolute;
+}
+.sec2_box_L_list:hover{ background: black !important; color: #fff !important;}
+.sec2_box_R_box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+}
+.sec2_box_R_box:nth-child(1){right: 0;}
+/* sec3 */
+.sec3{
+    width: 100%;
+    height: 800px;
+}
+.sec3_box_list{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+.sec3_box_L{
+    width: 20%;
+    height: 100%;
+}
+.sec3_box_L_list{
+    width: calc(100% - 60px);
+    margin-right: 30px;
+    height: calc((100% - 80px) / 5);
+    margin-bottom: 40px;
+    margin-top: 40px;
+    margin-left: 30px;
+    text-align: center;
+    border-radius: 30px 30px 30px 30px;
+    font-size: 30px;
+    line-height: 150px;
+    font-weight: 900;
+    cursor: pointer;
+    background: #fff;
+}
+.sec_3_L1{background: black;color: #fff;}
+/* sec3 R */
+.sec3_box_R{
+    width: 80%;
+    height: 100%;
+    position: relative;
+}
+.sec3_box_R_list{
+    width: calc(100% - 60px);
+    height: calc(100% - 60px);
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: absolute;
+    overflow: hidden;
+}
+.sec3_box_L_list:hover{ background: black !important; color: #fff !important; }
+.sec3_box_R_box{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+}
+.sec3_box_R_box:nth-child(1){right: 0;}
+/* sec_R_box */
+.sec_R_box{
+    width: calc((100% - (40px * 4) )/ 4);
+    height: calc((100% - (40px * 2))/ 2);
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    transform: scale(1);
+    transition: 1s;
+}
+.sec_R_box:hover{
+    transform: scale(1.2);
+}
+/* 이미지 추가  */
+/* sec_1 */
+.sec_1_R1 > div:nth-child(1){background: url(https://www.byslim.com/web/product/extra/big/202305/393839cc6f923aa813c45c00fe87e728.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(2){background: url(https://www.byslim.com/web/product/extra/big/202403/33f313ca093b73152ccba6054aa6ea39.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(3){background: url(https://www.byslim.com/web/product/medium/202403/233314226c3469642b6748bfa4662f11.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(4){background: url(https://www.byslim.com/web/product/extra/big/202403/0ccc00cc88cd22fa017f2b1ef91fc133.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(5){background: url(https://www.byslim.com/web/product/extra/big/202402/d88c3221272c60ff6c9907824200ef22.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(6){background: url(https://www.byslim.com/web/product/extra/big/202306/155f3a9d9797265fc5b11d6d45e8ba3f.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(7){background: url(https://www.byslim.com/web/product/extra/big/202402/beb9e7648761150192363a6f41bdf573.jpg) no-repeat center / cover;}
+.sec_1_R1 > div:nth-child(8){background: url(https://www.byslim.com/web/product/extra/big/202403/739422afbc594519494b114854a904cc.jpg) no-repeat center / cover;}
+
+.sec_1_R2 > div:nth-child(1){background: url(https://www.byslim.com/web/product/extra/big/202403/3c37437abdff252acf315f90cd603eed.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(2){background: url(https://www.byslim.com/web/product/medium/202312/6c71f77e7f80952ff9f1542aa162af9d.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(3){background: url(https://www.byslim.com/web/product/medium/202403/72346f8f8bf86eaa2701b9533f69f66a.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(4){background: url(https://www.byslim.com/web/product/medium/202403/bcb42c5cf1926fedc5cf5d2e2d19fc1f.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(5){background: url(https://www.byslim.com/web/product/medium/202401/1a0ca5cf8f5f9f6e2479abfff7003e77.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(6){background: url(https://www.byslim.com/web/product/medium/202401/f21879a80005ec48f6eae2ee749f1fd6.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(7){background: url(https://www.byslim.com/web/product/medium/202403/869108a0d022e4a3944a9af02567843b.jpg) no-repeat center / cover;}
+.sec_1_R2 > div:nth-child(8){background: url(https://www.byslim.com/web/product/medium/202403/6461394f14d5a8309a88dcaffd19f9f0.jpg) no-repeat center / cover;}
+
+.sec_1_R3 > div:nth-child(1){background: url(https://www.byslim.com/web/product/medium/202403/187c8a4df938da5c975c77d28d7b2a55.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(2){background: url(https://www.byslim.com/web/product/extra/big/202403/94f2baf9d81e7f377d0ee2a0349d91e3.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(3){background: url(https://www.byslim.com/web/product/extra/big/202402/4c87d84bfbae705d2700b8c18c28dd18.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(4){background: url(https://www.byslim.com/web/product/extra/big/202403/41516046ca84d36edc5bd80043a2a13f.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(5){background: url(https://www.byslim.com/web/product/extra/big/202402/8017f77973be94356520bb605940d200.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(6){background: url(https://www.byslim.com/web/product/medium/202402/2fe14f3f4abcdcd5ad53e91c95feec52.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(7){background: url(https://www.byslim.com/web/product/medium/202403/7da34d978d8a1e792c6bd75db8d47cba.jpg) no-repeat center / cover;}
+.sec_1_R3 > div:nth-child(8){background: url(https://www.byslim.com/web/product/medium/202304/242e8c2992a1ca554d0ff085e328820f.jpg) no-repeat center / cover;}
+
+.sec_1_R4 > div:nth-child(1){background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002122.jpg?1544164776) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(2){background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002382.jpg?1554705859) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(3){background: url(https://www.flyday.co.kr/shopimages/flyday/0510010001132.jpg?1541665710) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(4){background: url(https://flyday.diskn.com/thumbnail/950_950_20210621_bbH1.jpg) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(5){background: url(https://flyday.diskn.com/thumbnail/950_950_20210506_ccS4.jpg) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(6){background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002302.jpg?1555574879) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(7){background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002792.jpg?1499146227) no-repeat center / cover;}
+.sec_1_R4 > div:nth-child(8){background: url(https://flyday.diskn.com/thumbnail/950_950_20201224_aaS2.jpg) no-repeat center / cover;}
+
+/* sec_2 */
+.sec_2_R1 > div:nth-child(1){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/SUP37.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(2){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/BYH18.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(3){background: url(https://stylebiggirl.co.kr/web/product/tiny/202304/77073879cb8fcd9bbfd5afbb5cbef35d.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(4){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/NEM43.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(5){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/POM36.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(6){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/POM01.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(7){background: url(https://stylebiggirl.co.kr/web/product/tiny/202309/95f4a6577f9b23e75e7e4585f32f94f0.jpg) no-repeat center / cover;}
+.sec_2_R1 > div:nth-child(8){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/POM48.jpg) no-repeat center / cover;}
+
+.sec_2_R2 > div:nth-child(1){background: url(https://stylebiggirl.co.kr/web/product/tiny/202103/75b08868db27ac29bc8f9efef85b62ec.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(2){background: url(https://stylebiggirl.co.kr/web/product/tiny/202302/9c2ecdd4d7b026ca396f8c9b5b2443c0.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(3){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2340.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(4){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2315.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(5){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2321.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(6){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2323.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(7){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2325.jpg) no-repeat center / cover;}
+.sec_2_R2 > div:nth-child(8){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/MDB2328.jpg) no-repeat center / cover;}
+
+.sec_2_R3 > div:nth-child(1){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/PS450.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(2){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/GOA1477.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(3){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/PS456.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(4){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/LV1800.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(5){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/SNR362.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(6){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/GOA1480.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(7){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/PS618.jpg) no-repeat center / cover;}
+.sec_2_R3 > div:nth-child(8){background: url(https://stylebiggirl.co.kr/web/upload/info/2021/NBN1985.jpg) no-repeat center / cover;}
+
+.sec_2_R4 > div:nth-child(1){background: url(https://ccaccu2.diskn.com/web/big/PUB-363.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(2){background: url(https://ccaccu2.diskn.com/web/big/MA-314.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(3){background: url(https://ccaccu2.diskn.com/web/big/KS-999hi.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(4){background: url(https://ccaccu2.diskn.com/web/big/KS-A-7.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(5){background: url(https://ccaccu2.diskn.com/web/big/KS-060.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(6){background: url(https://ccaccu2.diskn.com/web/big/KS-H0709.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(7){background: url(https://ccaccu2.diskn.com/web/big/KS-0772.jpg) no-repeat center / cover;}
+.sec_2_R4 > div:nth-child(8){background: url(https://ccaccu2.diskn.com/web/big/KS-stillw.jpg) no-repeat center / cover;}
+
+/* sec_3 */
+.sec_3_R1 > div:nth-child(1){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BE/1BE067/R064F0002/1BE067_R064_F0002_V_WOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(2){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BE/1BE067/R064F0040/1BE067_R064_F0040_V_WOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(3){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BE/1BE067/R064F0594/1BE067_R064_F0594_V_WOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(4){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG510/2CYSF03BH/1BG510_2CYS_F03BH_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(5){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG517/2CYSF0002/1BG517_2CYS_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(6){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG468/2AOSF0237/1BG468_2AOS_F0237_V_COO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(7){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG494/2M2TF0393/1BG494_2M2T_F0393_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;}
+.sec_3_R1 > div:nth-child(8){background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG493/2M2TF0ES7/1BG493_2M2T_F0ES7_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg) no-repeat center / cover;}
+
+.sec_3_R2 > div:nth-child(1){background: url(https://cdn.amondz.com/product/109709/resize/mainImg/PSI_1245218_50.jpeg?h=640&q=90&v=1710681733745&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(2){background: url(https://cdn.amondz.com/product/90497/resize/mainImg/PSI_987909.jpeg?h=550&q=90&v=1687791637044&w=550) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(3){background: url(https://cdn.amondz.com/product/84742/resize/mainImg/PSI_916411_50.jpeg?h=640&q=90&v=1679920825912&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(4){background: url(https://cdn.amondz.com/product/108107/resize/mainImg/PSI_1222398_50.jpeg?h=640&q=90&v=1708353316872&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(5){background: url(https://cdn.amondz.com/product/102704/resize/mainImg/PSI_1149491_50.jpeg?h=640&q=90&v=1701837315171&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(6){background: url(https://cdn.amondz.com/product/110085/resize/mainImg/PSI_1250400.jpeg?h=640&q=90&v=1711045198764&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(7){background: url(https://cdn.amondz.com/product/108711/resize/mainImg/PSI_1232362_50.jpeg?h=640&q=90&v=1709055821232&w=640) no-repeat center / cover;}
+.sec_3_R2 > div:nth-child(8){background: url(https://cdn.amondz.com/product/110341/resize/mainImg/PSI_1252882.jpeg?h=640&q=90&v=1711414449564&w=640) no-repeat center / cover;}
+
+.sec_3_R3 > div:nth-child(1){background: url(https://cdn.amondz.com/product/110078/resize/mainImg/PSI_1250313.jpeg?h=550&q=90&v=1711022541658&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(2){background: url(https://cdn.amondz.com/product/109787/resize/mainImg/PSI_1246182.jpeg?h=550&q=90&v=1710760536403&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(3){background: url(https://cdn.amondz.com/product/109794/resize/mainImg/PSI_1246217.jpeg?h=550&q=90&v=1710761233245&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(4){background: url(https://cdn.amondz.com/product/108878/resize/mainImg/PSI_1233921.jpeg?h=550&q=90&v=1709177634019&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(5){background: url(https://cdn.amondz.com/product/108270/resize/mainImg/PSI_1247884.jpeg?h=550&q=90&v=1710906412138&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(6){background: url(https://cdn.amondz.com/product/108270/resize/mainImg/PSI_1247884.jpeg?h=550&q=90&v=1710906412138&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(7){background: url(https://cdn.amondz.com/product/109421/resize/mainImg/PSI_1240998.jpeg?h=550&q=90&v=1710155930709&w=550) no-repeat center / cover;}
+.sec_3_R3 > div:nth-child(8){background: url(https://cdn.amondz.com/product/105693/resize/mainImg/PSI_1192683.jpeg?h=550&q=90&v=1704966370053&w=550) no-repeat center / cover;}
+
+.sec_3_R4 > div:nth-child(1){background: url(https://cdn.amondz.com/product/109695/resize/mainImg/PSI_1245077.jpeg?h=550&q=90&v=1710679416840&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(2){background: url(https://cdn.amondz.com/product/109779/resize/mainImg/PSI_1247637.jpeg?h=550&q=90&v=1710890934345&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(3){background: url(https://cdn.amondz.com/product/109530/resize/mainImg/PSI_1242434.jpeg?h=550&q=90&v=1710328392653&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(4){background: url(https://cdn.amondz.com/product/108100/resize/mainImg/PSI_1223948.jpeg?h=550&q=90&v=1708429715727&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(5){background: url(https://cdn.amondz.com/product/110328/resize/mainImg/PSI_1252715.jpeg?h=550&q=90&v=1711359148027&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(6){background: url(https://cdn.amondz.com/product/109589/resize/mainImg/PSI_1243339.jpeg?h=550&q=90&v=1710415312532&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(7){background: url(https://cdn.amondz.com/product/110510/resize/mainImg/PSI_1255558.jpeg?h=550&q=90&v=1711594701923&w=550) no-repeat center / cover;}
+.sec_3_R4 > div:nth-child(8){background: url(https://cdn.amondz.com/product/109675/resize/mainImg/PSI_1244765.jpeg?h=550&q=90&v=1710648736705&w=550) no-repeat center / cover;}
+/* 사이즈 조절 */
+@media screen and (max-width: 1410px){
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 20px;
+        margin-right: 80px;
+        margin-left: 80px;
+    }
+}
+@media screen and (max-width: 1150px){
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 20px;
+        margin-right: 50px;
+        margin-left: 50px;
+    }
+    main{margin-top: 40px;}
+    .main_banner{height: 700px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 700px;}
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{line-height: 120px;}
+}
+@media screen and (max-width: 910px){
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 20px;
+        margin-right: 30px;
+        margin-left: 30px;
+    }
+    main{margin-top: 30px;}
+    .main_banner{height: 600px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 600px;}
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{line-height: 110px; font-size: 25px;}
+    .line_list{
+        width: 90px;
+        height: 15px;
+    }
+
+}
+@media screen and (max-width: 770px){
+    main{margin-top: 30px;}
+    .main_banner{height: 500px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 500px;}
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{line-height: 90px; font-size: 15px;}
+    .line_list{
+        width: 90px;
+        height: 10px;
+    }
+    .sec_R_box{
+        width: calc((100% - (20px * 4)) / 4);
+        height: calc((100% - (20px * 2)) / 2);
+        margin-top: 10px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        margin-right: 10px;
+    }
+
+}
+@media screen and (max-width: 600px){
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 15px;
+        margin-right: 20px;
+        margin-left: 20px;
+    }
+    main{margin-top: 20px;}
+    .main_banner{height: 400px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 400px;}
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{
+        width: calc(100% - 40px);
+        margin-right: 20px;
+        height: calc((100% - 60px) / 5);
+        margin-bottom: 30px;
+        margin-top: 30px;
+        margin-left: 20px;
+        line-height: 60px; 
+        font-size: 9px;}
+    .line_list{
+        width: 90px;
+        height: 10px;
+    }
+
+}
+@media screen and (max-width: 480px) {
+    .main_banner{height: 300px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 300px;}
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{
+        width: calc(100% - 20px);
+        margin-right: 10px;
+        height: calc((100% - 40px) / 5);
+        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-left: 10px;
+        line-height: 50px; 
+        font-size: 9px;
+        border-radius: 5px 5px 5px 5px;
+    }
+    .line_list{
+        width: 70px;
+        height: 8px;
+    }
+    .sec_R_box{
+        width: calc((100% - (5px * 2)) / 3);
+        height: calc((100% - (20px * 2)) / 5);
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-bottom: 10px;
+        margin-right: 5px;
+    }
+    .sec1_box_R_list,
+    .sec2_box_R_list,
+    .sec3_box_R_list{
+        width: calc(100%  - 40px);
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+@media screen and (max-width: 410px) {
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 12px;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    main{margin-top: 20px;}
+    .main_banner{height: 400px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 400px;}
+
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{line-height: 80px; font-size: 10px;}
+}
+@media screen and (max-width: 300px){
+    .header_list_0,
+    .header_list_1,
+    .header_list_2,
+    .header_list_3,
+    .header_list_4{
+        font-size: 10px;
+        margin-right: 8px;
+        margin-left: 8px;
+    }
+    .sec1_box_L_list,
+    .sec2_box_L_list,
+    .sec3_box_L_list{line-height: 60px; font-size: 7px;}
+    main{margin-top: 10px;}
+    .main_banner{height: 300px;}
+    .sec1,
+    .sec2,
+    .sec3{height: 300px;}
+    .line_list{
+        width: 50px;
+        height: 5px;
+    }
+    .sec1_box_R_list{
+        width: 100%;
+        margin-left: 0; 
+        margin-right: 0; 
+    }
+}
+/* footer */
+footer{
+    width: 100%;
+    height: 300px;
+    background: black;
+}

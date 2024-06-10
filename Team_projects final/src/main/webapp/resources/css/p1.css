@@ -1,0 +1,1253 @@
+body{margin: 0;}
+ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+a{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: inherit;
+    text-decoration: none;
+}
+li{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+h1{
+    padding: 0;
+    margin: 0;
+    font-size: 30px;
+}
+p{
+    padding: 0;
+    margin: 0;
+}
+/* header */
+header{
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    z-index: 99;
+    transition: 0.5s;
+}
+.header_box{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+header:hover{
+    background-color: #fff; 
+}
+.header_logo_L{
+    width: calc(30% - 50px);
+    height: 100%;
+    font-size: 50px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 100px;
+    padding-left: 50px;
+}
+header:hover .header_logo_L{
+    color: blue ;
+}
+.header_list{
+    width: 40%;
+    height: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    text-align:  center;
+    font-size: 20px;
+    color: #fff;
+    line-height: 100px;
+    font-weight: 600;
+}
+header:hover .header_logo_L,
+header:hover .header_list > div{
+    color: blue ;
+}
+.header_list > div:nth-child(1):hover,
+.header_list > div:nth-child(2):hover,
+.header_list > div:nth-child(3):hover,
+.header_list > div:nth-child(4):hover {
+    text-decoration: underline;
+}
+.header_logo_R{
+    width: calc(30% - 30px);
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 30px;
+}
+.header_logo_R_list{
+    width: 40%;
+    height: 70%;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 65px;
+    background-color: #fff;
+    border-radius: 50px 50px 50px 50px;
+}
+header:hover .header_logo_R_list{
+    background-color: blue;
+    color: #fff;
+}
+/* 메뉴판 */
+.header_list > div{
+    width: calc(100% / 4);
+    height: 100%;
+}
+.header_list_box_go_1:hover .header_list_box{
+    height: 300px;
+}
+.header_list_box{
+    width: 100%;
+    height: 0;
+    background-color: #fff;
+    position: absolute;
+    left: 0;
+    display: flex;
+    color: black !important;
+    transition: all 0.5s;
+}
+
+/* fixed_right */
+.fixed_right{
+    position: fixed;
+    right: -10%;
+    top: 25%;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: url(/resources/imgss/play.png) no-repeat center / cover;
+    z-index: 99;
+    transition: 1s; 
+}
+.fixed_right > a{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+/* main */
+main{
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),url(/resources/imgss/main.jpg) no-repeat center /cover;
+    background-attachment: fixed;
+}
+.main_banner{
+    width: 100%;
+    height: 1400px;
+    display: flex;
+    flex-flow: row wrap;
+}
+/* main 왼쪽 */
+.main_banner_box{
+    width: 40%;
+    height: 100%;
+}
+video::-webkit-media-controls-fullscreen-button {display: none;} 
+video::-webkit-media-controls-play-button {display: none;} 
+video::-webkit-media-controls-timeline {display: none;} 
+video::-webkit-media-controls-current-time-display{display: none;} 
+video::-webkit-media-controls-time-remaining-display {display: none;} 
+video::-webkit-media-controls-mute-button {display: none;} 
+video::-webkit-media-controls-volume-slider {display: none;} 
+
+/* main 오른쪽 */
+.img_banner{
+    width: calc(60% - 20px);
+    height: 100%;
+    margin-left: 20px;
+    position: relative;
+    overflow: hidden;
+}
+.banner_img{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+}
+.img_banner_1{
+    background:url(/resources/imgss/mian-banner-1.jpg) no-repeat center / cover;
+}
+.img_banner_2{
+    background:url(/resources/imgss/mian-banner-2.jpg) no-repeat center/ cover;
+}
+.img_banner_3{
+    background:url(/resources/imgss/mian-banner-3.jpg) no-repeat center / cover;
+}
+.banner_img:nth-child(1){
+    right: 0;
+}
+/* sec1 */
+.sec1{
+    width: 100%;
+    margin-top: 100px;
+}
+.sec1_main{
+    width: 100%;
+    height: 800px;
+    display: flex;
+}
+/* sec1_main_L */
+.sec1_main_L{
+    width: calc(30% - 50px);
+    padding-left: 50px;
+    height: 100%;
+    background: linear-gradient(rgba(223, 216, 222, 0.836), rgba(255, 255, 255, 0.521));
+    border-radius: 10px 10px 10px 10px;
+}
+.sec1_main_L > div{
+    width: calc(100% - 40px);
+    height: calc((100% - (26px * 5))/ 5);
+    margin-right: 40px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+.sec1_main_L_1a_cr_box,
+.sec1_main_L_2a_cr_box,
+.sec1_main_L_3a_cr_box,
+.sec1_main_L_4a_cr_box,
+.sec1_main_L_5a_cr_box{
+    width: 20%;
+    height: 100%;
+    position: relative;
+}
+.sec1_cr1_box,
+.sec1_cr2_box,
+.sec1_cr3_box,
+.sec1_cr4_box,
+.sec1_cr5_box{
+    width: 100px;
+    height: 100px;  
+    position: absolute;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.5s;
+}
+.sec1_cr1_box{background: url(/resources/imgss/sec1_cr1.png) no-repeat center /cover}
+.sec1_cr2_box{background: url(/resources/imgss/sec1_cr2.png) no-repeat center /cover}
+.sec1_cr3_box{background: url(/resources/imgss/sec1_cr3.png) no-repeat center /cover}
+.sec1_cr4_box{background: url(/resources/imgss/sec1_cr4.png) no-repeat center /cover}
+.sec1_cr5_box{background: url(/resources/imgss/sec1_cr5.png) no-repeat center /cover}
+.sec1_main_L_1a_box,
+.sec1_main_L_2a_box,
+.sec1_main_L_3a_box,
+.sec1_main_L_4a_box,
+.sec1_main_L_5a_box{
+    width: calc(80% - 20px);
+    margin-left: 20px;
+    height: 100%;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 120px;
+}
+.sec1_main_L_1a_box:hover,
+.sec1_main_L_2a_box:hover,
+.sec1_main_L_3a_box:hover,
+.sec1_main_L_4a_box:hover,
+.sec1_main_L_5a_box:hover{
+    border: 1px solid !important;
+}
+.sec1_main_L_1:hover .sec1_main_L_1a_cr_box > .sec1_cr1_box{background: url(/resources/imgss/sec1_cr11.png) no-repeat center /cover;}
+.sec1_main_L_2:hover .sec1_main_L_2a_cr_box > .sec1_cr2_box{background: url(/resources/imgss/sec1_cr22.png) no-repeat center /cover;}
+.sec1_main_L_3:hover .sec1_main_L_3a_cr_box > .sec1_cr3_box{background: url(/resources/imgss/sec1_cr33.png) no-repeat center /cover;}
+.sec1_main_L_4:hover .sec1_main_L_4a_cr_box > .sec1_cr4_box{background: url(/resources/imgss/sec1_cr44.png) no-repeat center /cover;}
+.sec1_main_L_5:hover .sec1_main_L_5a_cr_box > .sec1_cr5_box{background: url(/resources/imgss/sec1_cr55.png) no-repeat center /cover;}
+
+/* sec1_main_R */
+.sec1_main_R{
+    width: calc(70% - 30px);
+    margin-left: 30px;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.sec1_main_R_1,
+.sec1_main_R_2,
+.sec1_main_R_3,
+.sec1_main_R_4,
+.sec1_main_R_5{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+    background: linear-gradient(rgba(223, 216, 222, 0.836), rgba(255, 255, 255, 0.521));
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap
+    
+}
+/* sec1_main_R 메뉴판 */
+.sec1_main_R_1 > div,
+.sec1_main_R_2 > div,
+.sec1_main_R_3 > div,
+.sec1_main_R_4 > div,
+.sec1_main_R_5 > div{
+    width: calc((100% - (20px * 4) )/ 4);
+    margin-left: 10px;
+    margin-right: 10px;
+    height: calc((50% - (20px * 4))/ 2);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius:  10px;
+    transition: 0.5s;   
+    position: relative;
+}
+/* 1 */
+.sec1_main_R_1 > div:hover {
+    transform: perspective(1500px) rotateY(-30deg);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+.sec1_main_R_1_box1{background: url(https://m.wooilsin.co.kr/web/product/big/202402/e63415ca5b5c842864a2846161ada790.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box2{background: url(https://m.wooilsin.co.kr/web/product/big/202210/962da93581a545e1723662969d899103.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box3{background: url(https://m.wooilsin.co.kr/web/product/big/202303/800e50878be9c21a75cae333b5032eb6.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box4{background: url(https://m.wooilsin.co.kr/web/product/big/202402/1b3ba095da547d118c64200a242b4ad9.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box5{background: url(https://m.wooilsin.co.kr/web/product/big/202403/7d9a856d1141e6b520a4bd1f49827ad2.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box6{background: url(https://m.wooilsin.co.kr/web/product/big/202402/54facf517ce78dfba6591a968936d744.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box7{background: url(https://m.wooilsin.co.kr/web/product/big/202309/587766791f747f52653b239b6432cb7b.jpg) no-repeat center / cover;}
+.sec1_main_R_1_box8{background: url(https://m.wooilsin.co.kr/web/product/big/202310/f3cec3667b336db03c8de42b028a6fd1.jpg) no-repeat center / cover;}
+
+/* 2 */
+.sec1_main_R_2 > div:hover{
+    box-shadow: 5px 5px 5px 5px;
+}
+.sec1_main_R_2_box1{background: url(https://m.wooilsin.co.kr/web/product/big/202404/9bfd5599b0552c4b763d930d51289796.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box2{background: url(https://m.wooilsin.co.kr/web/product/big/202403/d00320ab4e6009a2206f63f6d737c922.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box3{background: url(https://m.wooilsin.co.kr/web/product/big/202403/53607438a74d1e3c630859be749d0133.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box4{background: url(https://m.wooilsin.co.kr/web/product/big/202403/0918bd7da66bbf9a2d088fec990bc997.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box5{background: url(https://m.wooilsin.co.kr/web/product/big/202403/ed8e34c318d9139effb26f584cf92f49.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box6{background: url(https://m.wooilsin.co.kr/web/product/big/202404/060cdcf60dd27d82b06d52e18ed9529b.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box7{background: url(https://m.wooilsin.co.kr/web/product/big/202402/6c792a4a3ec446c814432d7b791cf366.jpg) no-repeat center / cover;}
+.sec1_main_R_2_box8{background: url(https://m.wooilsin.co.kr/web/product/big/202403/b003176299afd64e29e1ac36609720c4.jpg) no-repeat center / cover;}
+/* 3 */
+.sec1_main_R_3 > div:hover {
+	opacity: 1;
+	-webkit-animation: flash 1s;
+	animation: flash 1s;
+}
+@-webkit-keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@keyframes flash {
+	0% {
+		opacity: .4;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+.sec1_main_R_3_box1{background: url(https://m.wooilsin.co.kr/web/product/big/202310/140b426917afc1864295f2fdb8acdf20.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box2{background: url(https://m.wooilsin.co.kr/web/product/big/202310/a314476857396216d8564b4ab0172a02.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box3{background: url(https://m.wooilsin.co.kr/web/product/big/202403/99a7f852928d728d4f54dcc7dc19220d.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box4{background: url(https://m.wooilsin.co.kr/web/product/big/202402/d7f928d3d14a8f4cc33ae1f508fd58a1.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box5{background: url(https://m.wooilsin.co.kr/web/product/big/202404/1f5ba224597d710e9a4324276f2b1e7f.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box6{background: url(https://m.wooilsin.co.kr/web/product/big/202402/370c70bfd0c1971cfff5a6cf09bd4ee9.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box7{background: url(https://m.wooilsin.co.kr/web/product/big/202310/7046d60742300b67e7478d14e4c8f17b.jpg) no-repeat center / cover;}
+.sec1_main_R_3_box8{background: url(https://m.wooilsin.co.kr/web/product/big/202305/d9b2e415a83ef347c91e5d01b12f074d.jpg) no-repeat center / cover;}
+/* 4 */
+.sec1_main_R_4 > div{
+	opacity: 1;
+	-webkit-transition: .5s ease-in-out;
+	transition: .5s ease-in-out;
+}
+.sec1_main_R_4 > div:hover  {
+	opacity: .6;
+}
+.sec1_main_R_4_box1{background: url(https://lilydress.co.kr/web/product/big/202309/b9cf6c1a8e1dbba49f5308581f4808ff.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box2{background: url(https://lilydress.co.kr/web/product/big/202305/469051e774386df4dd64b01ccec66f98.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box3{background: url(https://lilydress.co.kr/web/product/big/202303/08cc904b5843496feacbe7aee7036690.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box4{background: url(https://lilydress.co.kr/web/product/big/202402/27eae41b836091d6388fc2b0f4aa87df.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box5{background: url(https://lilydress.co.kr/web/product/big/201911/85936f9a2925c7051fddc8a46d2b17ad.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box6{background: url(https://lilydress.co.kr/web/product/big/202307/fa6d17209397e0df9bcc8374e102cc1b.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box7{background: url(https://lilydress.co.kr/web/product/big/202402/f785b176b53e806250210e6c6e68cd6c.jpg) no-repeat center / cover;}
+.sec1_main_R_4_box8{background: url(https://lilydress.co.kr/web/product/big/202307/d6a2fceddea50333b67c678c9ada3553.jpg) no-repeat center / cover;}
+
+/* 5 */
+.sec1_main_R_5 > div:hover{animation:sec1_R_5_an .1s infinite;}
+@keyframes sec1_R_5_an {
+    from{
+        transform: rotate(1deg);
+    }
+    to{
+        transform: rotate(-1deg);
+    }
+}
+.sec1_main_R_5_box1{background: url(https://www.flyday.co.kr/shopimages/flyday/0510010001132.jpg?1541665710) no-repeat center / cover;}
+.sec1_main_R_5_box2{background: url(https://flyday.diskn.com/thumbnail/950_950_20201224_aaS2.jpg) no-repeat center / cover;}
+.sec1_main_R_5_box3{background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002792.jpg?1499146227) no-repeat center / cover;}
+.sec1_main_R_5_box4{background: url(https://ccaccu2.diskn.com/web/big/KS-H0709.jpg) no-repeat center / cover;}
+.sec1_main_R_5_box5{background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002382.jpg?1554705859 ) no-repeat center / cover;}
+.sec1_main_R_5_box6{background: url(https://flyday.diskn.com/thumbnail/950_950_20210621_bbH1.jpg) no-repeat center / cover;}
+.sec1_main_R_5_box7{background: url(https://ccaccu2.diskn.com/web/big/MA-314.jpg    ) no-repeat center / cover;}
+.sec1_main_R_5_box8{background: url(https://www.flyday.co.kr/shopimages/flyday/0510010002302.jpg?1555574879) no-repeat center / cover;}
+
+
+/* 첫 시작때 */
+.sec1_main_R_1{right: 0;}
+.sec1_main_L_1a_box{border: 1px solid;}
+/* sec2 */
+.sec2{
+    width: 100%;
+    margin-top: 100px;
+}
+.sec2_main_box{
+    width: 80%;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+}
+.sec2_main_box > a:nth-child(1){
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%);
+    width: 300px;   
+    height: 300px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #ccc;
+}
+.sec2_main_box > a:nth-child(2){
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    transform: translate(-50%);
+    width: 300px;   
+    height: 300px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #ccc;
+}
+.sec2_main_box > a:nth-child(3){
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%);
+    width: 300px;   
+    height: 300px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    background: #ccc;
+}
+.sec2_main_box > a:before{
+    content: attr(data);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;    
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    transition: 0.5s;
+    transform-origin: bottom;
+    transform: translatey(-100%) rotatex(90deg);
+}
+.sec2_main_box > a:hover:before
+{
+    transform: translatey(0) rotatex(0deg);
+}
+
+.sec2_main_box > a:after{
+    content: attr(data);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #828282;
+    transition: 0.5s;
+    transform-origin: top;
+    transform: translatey(0) rotatex(0deg);
+}
+.sec2_main_box > a:nth-child(1)::after{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA274/2CYSF0018/1BA274_2CYS_F0018_V_YOB_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg) no-repeat center/cover;}
+.sec2_main_box > a:nth-child(2)::after{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA863/NZVF0002/1BA863_NZV_F0002_V_EOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg)no-repeat center/cover;}
+.sec2_main_box > a:nth-child(3)::after{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA274/2CYSF0009/1BA274_2CYS_F0009_V_YOB_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg)no-repeat center/cover;}
+
+.sec2_main_box > a:nth-child(1)::before{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA863/NZVF03OE/1BA863_NZV_F03OE_V_EOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center /cover;}
+.sec2_main_box > a:nth-child(2)::before{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA274/2CYSF0002/1BA274_2CYS_F0002_V_YOB_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg)no-repeat center/cover;}
+.sec2_main_box > a:nth-child(3)::before{background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA863/NZVF0009/1BA863_NZV_F0009_V_EOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.600.600.jpg)no-repeat center /cover;}
+.sec2_main_box > a:hover:after
+{transform: translatey(100%) rotatex(90deg);}
+/* sec3 */
+.sec3{
+    width: 100%;
+}
+.sec3_box{
+    width: 80%;
+    height: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_main_box1,
+.sec3_main_box2{
+    width: 50%;
+    height: 100%;
+    transition: 1s;
+    position: relative;
+}
+/* sce3_box1 */
+.sec3_main_box1{
+    background: linear-gradient(rgba(223, 216, 222, 0.836), rgba(255, 255, 255, 0.521));
+    right: 100%;
+    display: flex;
+    flex-direction: column;
+}
+/* 위쪽 */
+.sec3_box11{
+    width: calc(100% - 50px);
+    margin-left: 30px;
+    margin-right: 20px;
+    height: calc(60% - 40px);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box111,
+.sec3_box112,
+.sec3_box113{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    left: -100%;
+}
+.sec3_box111{ left: 0;}
+/* sec3 111 */
+.sec3_box_111_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/kelly-men-%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%8A%AC%EB%A6%BF--703205FB5F-front-1-300-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_111_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box111_list{
+    width: 50%; 
+    height: calc((100% - (20px * 5 ))/ 5);
+    text-align: center;
+    align-items: center;
+    background-color: wheat;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box111_list:nth-child(1){background:#83532b;}
+.sec3_box111_list:nth-child(2){background:#e22d5f;}
+.sec3_box111_list:nth-child(3){background:#e8f1e0;}
+.sec3_box111_list:nth-child(4){background:#ec661d;}
+.sec3_box111_list:nth-child(5){background:#ccdbe4;}
+/* sec3 112 */
+.sec3_box_112_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%A7%81-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--500059FC18-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_112_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box112_list{
+    width: 50%; 
+    height: calc((100% - (20px * 3 )) / 3);
+    text-align: center;
+    align-items: center;
+    background-color: wheat;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box112_list:nth-child(1){background:url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%A7%81-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--500059FC18-worn-1-0-0-800-800_g.jpg) no-repeat center / cover}
+.sec3_box112_list:nth-child(2){background:url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%A7%81-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--500059FC89-worn-1-0-0-800-800_g.jpg) no-repeat center /cover}
+.sec3_box112_list:nth-child(3){background: url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%A7%81-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--500059FCN5-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;}
+/* sec3 113 */
+.sec3_box_113_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%8A%AC%EB%A6%BF--010678CC73-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_113_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box113_list{
+    width: 50%; 
+    height: calc((100% - (20px * 5 ))/ 5);
+    text-align: center;
+    align-items: center;
+    background-color: wheat;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box113_list:nth-child(1){background:#071068;}
+.sec3_box113_list:nth-child(2){background:#004830;}
+.sec3_box113_list:nth-child(3){background:#5e285c;}
+.sec3_box113_list:nth-child(4){background:#5d8c9e;}
+.sec3_box113_list:nth-child(5){background:#83532b;}
+/* sec3 1박스 아래쪽 */
+.sec3_box12{
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    height: calc(40% - 20px);
+    margin-bottom: 20px;
+    display: flex;
+}
+.sec3_box_img1,
+.sec3_box_img2,
+.sec3_box_img3{
+    width: 100%;
+    height: 70%;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+.sec3_box_img1{ background: url(https://assets.hermes.com/is/image/hermesproduct/kelly-men-%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%8A%AC%EB%A6%BF--703205FB5F-front-1-300-0-800-800_g.jpg) no-repeat center / cover;}  
+.sec3_box_img2{ background: url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%A7%81-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--500059FC18-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}  
+.sec3_box_img3{ background: url(https://assets.hermes.com/is/image/hermesproduct/olympe-%EB%B8%8C%EB%A0%88%EC%9D%B4%EC%8A%AC%EB%A6%BF--010678CC73-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}  
+.sec3_box_list{
+    width: 100%;
+    height: 30%;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    background: #e9e5df;
+}
+/* sec3 2번째 박스 */
+.sec3_main_box2{
+    background: linear-gradient(rgba(223, 216, 222, 0.836), rgba(255, 255, 255, 0.521));
+    left: 100%;
+}
+/* sec3 2번째 위쪽 */
+.sec3_box21{
+    width: calc(100% - 50px);
+    margin-left: 30px;
+    margin-right: 20px;
+    height: calc(60% - 40px);
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box211,
+.sec3_box212,
+.sec3_box213{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    right: -100%;
+    display: flex;
+}
+.sec3_box211{right: 0;}
+/* 211 */
+.sec3_box_211_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FK0Z-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_211_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box211_list{
+    width: 50%; 
+    height: calc((100% - (20px * 4 ))/ 4);
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box211_list:nth-child(1){background:url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FK0Z-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box211_list:nth-child(2){background:url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FK0X-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box211_list:nth-child(3){background:url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FKS3-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box211_list:nth-child(4){background:url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FK7U-front-wm-2-0-0-800-800_g.jpg)no-repeat center / cover;}
+
+/* 212 */
+.sec3_box_212_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA9R-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_212_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box212_list{
+    width: 50%; 
+    height: calc((100% - (20px * 4 ))/ 4);
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box212_list:nth-child(1){background:url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA9R-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box212_list:nth-child(2){background:url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA37-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box212_list:nth-child(3){background:url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA55-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box212_list:nth-child(4){background:url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA76-worn-1-0-0-800-800_g.jpg)no-repeat center / cover;}
+
+/* 213 */
+.sec3_box_213_img{
+    width: 60%;
+    height: 100%;
+    background: url(https://assets.hermes.com/is/image/hermesproduct/fusion-amulette-kelly-%ED%8E%9C%EB%8D%98%ED%8A%B8-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--057119FD04-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_213_list{
+    width: 40%;
+    height: 100%;   
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box213_list{
+    width: 50%; 
+    height: calc((100% - (20px * 3 ))/ 3);
+    text-align: center;
+    align-items: center;
+    margin: 0 auto;
+    line-height: 70px;
+    border-radius: 10px 10px 10px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 600;
+}
+.sec3_box213_list:nth-child(1){background:url(https://assets.hermes.com/is/image/hermesproduct/fusion-amulette-kelly-%ED%8E%9C%EB%8D%98%ED%8A%B8-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--057119FD04-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box213_list:nth-child(2){background:url(https://assets.hermes.com/is/image/hermesproduct/fusion-amulette-kelly-%ED%8E%9C%EB%8D%98%ED%8A%B8-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--057119FD01-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+.sec3_box213_list:nth-child(3){background:url(https://assets.hermes.com/is/image/hermesproduct/fusion-amulette-kelly-%ED%8E%9C%EB%8D%98%ED%8A%B8-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--057119FD02-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+/* sec3 1박스 아래쪽 */
+.sec3_box222{
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    margin-right: 20px;
+    height: calc(40% - 20px);
+    margin-bottom: 20px;
+    display: flex;
+}
+.sec3_box_img4,
+.sec3_box_img5,
+.sec3_box_img6{
+    width: 100%;
+    height: 70%;
+    border-radius: 10px 10px 0 0;
+    cursor: pointer;
+}
+.sec3_box_img4{ background: url(https://assets.hermes.com/is/image/hermesproduct/chaine-d-ancre-%EB%B0%B0%EC%A7%80--500262FK0Z-front-wm-2-0-0-800-800_g.jpg) no-repeat center / cover;}  
+.sec3_box_img5{ background: url(https://assets.hermes.com/is/image/hermesproduct/loop-%EC%9D%B4%EC%96%B4%EB%A7%81-%EC%8A%A4%EB%AA%B0-%EB%AA%A8%EB%8D%B8--010716CA9R-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}  
+.sec3_box_img6{ background: url(https://assets.hermes.com/is/image/hermesproduct/fusion-amulette-kelly-%ED%8E%9C%EB%8D%98%ED%8A%B8-%EB%9D%BC%EC%A7%80-%EB%AA%A8%EB%8D%B8--057119FD04-worn-1-0-0-800-800_g.jpg) no-repeat center / cover;}
+/* sec3 왼쪽 오른쪽 전체 설정 */
+.sec3_box12_box{
+    width: calc((100% - (20px * 3)) / 3);
+    margin-left: 10px;
+    margin-right: 10px;
+    height: 100%;
+    background: wheat;
+    border-radius: 10px 10px 10px 10px;
+}
+.sec3_box_list{
+    width: 100%;
+    height: 30%;
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    background: #e9e5df;
+}
+/* sec3 전체 박스 크기 조절 */
+.sec3_main_box1:hover {width: 70%;} 
+.sec3_main_box1:hover .sec3_main_box2{width: 30%;} 
+.sec3_main_box2:hover {width: 70%;} 
+.sec3_main_box2:hover .sec3_main_box1{width: 30%;} 
+/* sec4 */
+.sec4{
+    width: 100%;
+    height: 600px;
+    margin-top: 100px;
+    position: relative;
+}
+.flow_banner {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    background: #1ec468;}
+.flow_banner .list {display: flex; justify-content: center; align-items: center;}
+.flow_banner .list > div {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    font-size: 100px;
+    line-height: 1000px;
+    color: #E5F595;
+    padding: 20px;}
+.flow_banner .list > div:nth-child(1){background: url(/resources/imgss/list_1.jpg)no-repeat center /cover;}
+.flow_banner .list > div:nth-child(2){background: url(/resources/imgss/list_2.jpg)no-repeat center /cover;}
+.flow_banner .list > div:nth-child(3){background: url(/resources/imgss/list_3.jpg)no-repeat center /cover;}
+.flow_banner .list > div:nth-child(4){background: url(/resources/imgss/list_4.jpg)no-repeat center /cover;}
+.flow_banner .list > div:nth-child(5){background: url(/resources/imgss/list_5.jpg)no-repeat center /cover;}
+@keyframes flowRolling {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+/* footer */    
+footer{
+    width: 100%;
+    height: 200px;
+    background-color: black;
+}
+/* 사이즈 조절 */
+@media screen and (max-width:1286px) {
+    .header_logo_R_list{
+        font-size: 20px;
+    }
+    .main_banner{
+        height: 1300px;
+        }
+        .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box {
+            width: 90px;
+            height: 90px;
+        }
+}
+@media screen and (max-width:1220px) {
+    .header_logo_L{
+        font-size: 40px;
+    }
+    .main_banner{height: 1200px;}
+    .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box {
+            width: 70px;
+            height: 70px;
+        } 
+}
+@media screen and (max-width:1140px) {
+    .main_banner{
+        height: 1000px;
+        }
+    .sec1_main,
+    .sec2_main_box,
+    .sec3_box{
+        height: 600px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 80px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 200px;
+        height: 200px;
+    }
+    br{
+        display: none;
+    }
+    .header_logo_R_list{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:1010px) {
+    .header_logo_L{
+        font-size: 30px;
+    }
+    .main_banner{
+        height: 900px;
+        }
+    .sec1_main,
+    .sec2_main_box,
+    .sec3_box,
+    .sec4{
+        height: 500px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 70px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 150px;
+        height: 150px;
+    }
+    .header_logo_R_list{
+        font-size: 15px;
+    }
+    .fixed_right{
+        width: 80px;
+        height: 80px;
+        }
+    .sec3_box_list{
+        font-size: 9px;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{ line-height: 80px;}
+}
+@media screen and (max-width:930px) {
+    .header_logo_L{
+        font-size: 25px;
+    }
+    .main_banner{
+        height: 800px;
+        }
+    .sec1_main,
+    .sec2_main_box,
+    .sec3_box,
+    .sec4{
+        height: 450px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 70px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 150px;
+        height: 150px;
+    }
+    .header_logo_R_list{
+        font-size: 15px;
+    }
+    .fixed_right{
+        width: 80px;
+        height: 80px;
+        }
+    .sec3_box_list{
+        font-size: 9px;
+    }
+    .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box {
+        width: 50px;
+        height: 50px;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{ line-height: 70px;}
+    .sec3_box11,
+    .sec3_box21{
+        height: calc(60% - 20px);
+        margin-bottom: 10px;
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:830px) {
+    .header_logo_L{
+        font-size: 20px;
+    }
+    .main_banner{
+        height: 700px;
+        }
+    .sec1_main,
+    .sec2_main_box,
+    .sec3_box,
+    .sec4{
+        height: 350px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 60px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 150px;
+        height: 150px;
+    }
+    .header_logo_R_list{
+        font-size: 10px;
+        line-height: 55px;
+    }
+    .fixed_right{
+        width: 60px;
+        height: 60px;
+        }
+    .sec3_box_list{
+        font-size: 9px;
+    }
+    .header_list{
+        font-size: 15px;
+    }
+    header{
+        height: 80px;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{ font-size: 15px; line-height: 50px;} 
+}
+@media screen and (max-width:670px) {
+    .header_logo_L{
+        font-size: 15px;
+    }
+    .main_banner{
+        height: 600px;
+        }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 50px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 100px;
+        height: 100px;
+    }
+    .header_logo_R_list{
+        font-size: 10px;
+        line-height: 55px;
+    }
+    .fixed_right{
+        width: 40px;
+        height: 40px;
+        }
+    .sec3_box_list{
+        font-size: 5px;
+    }
+    .header_list{
+        font-size: 12px;
+    }
+    header{
+        height: 80px;
+    }
+    footer{
+        height: 100px;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{ font-size: 10px; line-height: 50px;} 
+}
+@media screen and (max-width:600px) {
+    .header_logo_L{
+        font-size: 10px;
+    }
+    .main_banner{
+        height: 400px;
+        }
+    .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box{
+        width: 40px;
+        height: 40px;
+    }
+    .sec1_main_L{
+        width: calc(30% - 30px);
+        padding-left: 30px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 40px;
+    }
+    .sec2_main_box > a:nth-child(1),
+    .sec2_main_box > a:nth-child(2),
+    .sec2_main_box > a:nth-child(3){
+        width: 100px;
+        height: 100px;
+    }
+    .header_logo_R_list{
+        font-size: 8px;
+        line-height: 55px;
+        border-radius: 10px;
+    }
+    .fixed_right{
+        width: 40px;
+        height: 40px;
+        }
+    .sec3_box_list{
+        font-size: 5px;
+    }
+    .header_list{
+        font-size: 10px;
+    }
+    header{
+        height: 80px;
+    }
+    footer{
+        height: 100px;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{ font-size: 8px; line-height: 50px;} 
+}
+@media screen and (max-width:500px) {
+    .header_logo_L{
+        font-size: 8px;
+    }
+    .main_banner{
+        height: 330px;
+        }
+    .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box{
+        width: 40px;
+        height: 40px;
+    }
+    .sec1_main_L{
+        width: calc(30% - 20px);
+        padding-left: 20px;
+    }
+    .sec1,
+    .sec2,
+    .sec3,
+    .sec4{
+        margin-top: 30px;
+    }
+    .header_logo_R_list{
+        display: none;
+    }
+    .sec3_box_list{
+        font-size: 5px;
+    }
+    .header_list{
+        font-size: 8px;
+    }
+    .sec1_main_R_1 > div, .sec1_main_R_2 > div, .sec1_main_R_3 > div, .sec1_main_R_4 > div, .sec1_main_R_5 > div{
+        width: calc((100% - (20px * 2) ) / 2);
+        height:calc((50% - (20px * 4))/ 4);
+    }
+    .sec1_main_R_1_box5,
+    .sec1_main_R_1_box6,
+    .sec1_main_R_1_box7,
+    .sec1_main_R_1_box8{
+        display: none;
+    }
+    .sec1_main_R_2_box5,
+    .sec1_main_R_2_box6,
+    .sec1_main_R_2_box7,
+    .sec1_main_R_2_box8{
+        display: none;
+    }
+    .sec1_main_R_3_box5,
+    .sec1_main_R_3_box6,
+    .sec1_main_R_3_box7,
+    .sec1_main_R_3_box8{
+        display: none;
+    }
+    .sec1_main_R_4_box5,
+    .sec1_main_R_4_box6,
+    .sec1_main_R_4_box7,
+    .sec1_main_R_4_box8{
+        display: none;
+    }
+    .sec1_main_R_5_box5,
+    .sec1_main_R_5_box6,
+    .sec1_main_R_5_box7,
+    .sec1_main_R_5_box8{
+        display: none;
+    }
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{font-size: 5px;}
+    .sec1_cr1_box, .sec1_cr2_box, .sec1_cr3_box, .sec1_cr4_box, .sec1_cr5_box{
+        width: 30px;
+        height: 30px;
+    }
+    #sec3_j6,
+    #sec3_j3{
+        display: none;
+    }
+    .sec3_box222,
+    .sec3_box12{
+        justify-content: space-between;
+    }
+    .sec3_box12_box{
+        width: calc(100% / 2);
+        float: left;
+    }
+}
+@media screen and (max-width:400px
+) {
+    .sec1_main_L_1a_box, .sec1_main_L_2a_box, .sec1_main_L_3a_box, .sec1_main_L_4a_box, .sec1_main_L_5a_box{font-size: 3px;}
+    .header_logo_L{ font-size: 5px;}
+    .header_list{font-size: 5px;}
+}

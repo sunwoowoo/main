@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias alias="boardDto" type="com.bitstudy.app.domain.BoardDto"/>
+        <typeAlias alias="userDto" type="com.bitstudy.app.domain.UserDto"/>
+        <typeAlias alias="board_imgDto" type="com.bitstudy.app.domain.board_imgDto"/>
+        <typeAlias alias="commentDto" type="com.bitstudy.app.domain.commentDto"/>
+        <typeAlias alias="korea_tourDto" type="com.bitstudy.app.domain.korea_tourDto"/>
+        <typeAlias alias="k_searchDto" type="com.bitstudy.app.domain.k_searchDto"/>
+        <typeAlias alias="Do_areaDTO" type="com.bitstudy.app.domain.Do_areaDTO"/>
+        <typeAlias alias="Si_areaDTO" type="com.bitstudy.app.domain.Si_areaDTO"/>
+
+        <!--국내투어 댓글-->
+        <typeAlias alias="ktcDto" type="com.bitstudy.app.domain.korea_tour_commentDto"/>
+
+        <!--  국내투어 찜      -->
+        <typeAlias alias="k_zzimDto" type="com.bitstudy.app.domain.k_zzimDto"/>
+        <typeAlias alias="k_reservationDto" type="com.bitstudy.app.domain.k_reservationDto"></typeAlias>
+    </typeAliases>
+</configuration>
