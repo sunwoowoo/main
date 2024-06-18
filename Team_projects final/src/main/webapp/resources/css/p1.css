@@ -297,7 +297,7 @@ video::-webkit-media-controls-volume-slider {display: none;}
     width: calc((100% - (20px * 4) )/ 4);
     margin-left: 10px;
     margin-right: 10px;
-    height: calc((50% - (20px * 4))/ 2);
+    /*height: calc((50% - (20px * 4))/ 2);*/
     margin-top: 10px;
     margin-bottom: 10px;
     border-radius:  10px;
