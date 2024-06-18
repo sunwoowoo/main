@@ -105,8 +105,8 @@ main{
 .about_img{
     width: 400px;
     height: 400px;
-    border-radius: 50%;
     background:url(/resources/imgs/2.jpg)no-repeat center/ cover;
+    background-size: 200px;
 }
 .profile, .history{
     font-size: 25px;

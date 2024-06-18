@@ -52,6 +52,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2hcxnxzVrGYoD7XyWidCD5Tt5Xs" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -64,7 +67,7 @@
     "Tomcat Server.Tomcat 9.0.88.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user1/Desktop/Team_projects final",
+    "last_opened_file_path": "C:/Users/user1/Desktop/Team_projects final/src/main/webapp/resources/imgs",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -81,11 +84,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
+      <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgss" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\js" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\css" />
-      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
-      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\WEB-INF\views" />
     </key>
   </component>
   <component name="RunManager">
