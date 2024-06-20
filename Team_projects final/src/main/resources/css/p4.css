@@ -1,0 +1,509 @@
+body, html { 
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0F1D26;
+    font-family: sans-serif;}
+    ul {
+        padding: 0;
+        list-style: none;
+        width: 80%;
+        margin-left: 10%;
+        position: absolute;
+        top: 10px;
+    }
+    
+    ul li {
+        color: #fff;
+        font-family: sans-serif;
+        font-weight: 900;
+        padding: 20px 0;
+        cursor: pointer;
+    }
+    
+    h2 {
+        position: absolute;
+        left: 50%;
+        color: black;
+        margin: 0;
+        font-size: 16px;
+        font-family: sans-serif;
+        font-weight: 100;
+    }
+    a{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        color: inherit;
+        text-decoration: none;
+    }
+/* 메뉴판 */
+#menu {
+    height: 100%;
+    position: fixed;
+    background-color: #1E3040;
+    width: 300px;
+    transition: 1000ms all cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(-100%);
+    left: 60px;
+    z-index: 999;
+}
+#menu.expanded {
+    transform: translateX(0%);
+    left: 0px;}
+.menu-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;}
+#blob {
+    top: 0;
+    z-index: -1;
+    right: 60px;
+    transform: translateX(100%);
+    height: 100%;
+    position: absolute;}
+#blob-path {
+    height: 100%;
+    fill:  #1E3040;}
+.hamburger {
+    right: 20px;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    margin-top: -10px;  
+}
+
+.hamburger .line {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    position: absolute;
+}
+.hamburger .line:nth-child(2) {
+    top: 50%;
+    margin-top: -2px;
+}
+
+.hamburger .line:nth-child(3) {
+    bottom: 0;
+}
+/* 가로 스크린  */
+main {
+    overflow-x: hidden;
+    display: flex;
+    }
+.wrap{
+    min-width: 50vw;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4ch;
+    }
+    
+    .wrap:nth-child(even) {background-color: #58788C;}
+/* 박스 */
+
+.box{
+    width: 50%;
+    height: 70%;
+    background-color: #fff;
+    box-shadow: 5px 5px 5px 5px;
+    position: relative;
+}
+.box > h1{
+    font-size: 25px;
+    text-align: center;
+    padding-top: 20px;
+}
+/* 1번 */
+.box1 {
+    background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BA/1BA274/2CYSF0018/1BA274_2CYS_F0018_V_YOB_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;
+}
+.box_cr{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+.box_cr_color{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 1px solid;
+    cursor: pointer;
+}
+.cr_1{background: black;}
+.cr_2{background: #fff;}
+.cr_3{background: #a8704b;}
+.list2{
+    width: 80%;
+    height: 60%;
+    margin: 0 auto;
+    border: 1px solid;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+.list2 > p{
+    font-size: 20px;
+    padding-left: 20px;
+    font-weight: 900;
+}
+.list2 > p:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+/* 계산 */
+.list2_1{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+}
+.list2_1 > div{
+    margin-top: 20px;
+}
+.list2_2{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+button{
+    width: 10%;
+    font-size: 20px;
+}
+#txt_num1{
+    width: 75%;
+}
+#price1{text-align: center;}
+#fin_price1{text-align:  center;}
+.list{
+    width: 70%;
+    height: 50px;
+    background: black;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    line-height: 50px;
+    font-weight: 900;
+    margin: 0 auto;
+    margin-top: 15px;
+    cursor: pointer;
+}
+/* right_box */
+.right_box{
+    position: fixed;
+    width: 50%;
+    height: 100%;
+    background: #fff;
+    right: -100%;
+    z-index: 99;
+    transition: 1s;
+}
+.right_box >p{
+    padding: 0;
+    margin: 0;
+}
+.right_button{
+    width: 100%;
+    height: 50px;
+}
+.right_button > button{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    margin-right: 10px;
+    background: #fff;
+}
+.right_box_1{
+    width: 80%;
+    height: 65%;
+    border-bottom: 1px solid;
+    margin: 0 auto;
+}
+.right_box_2{
+    width: 80%;
+    height: 8%;
+    border-bottom: 1px solid;
+    margin: 0 auto;
+}
+.right_box_3{
+    width: 80%;
+    height: 8%;
+    margin: 0 auto;
+}
+/* 2번 */
+.box2{
+    background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BH/1BH204/R064F0002/1BH204_R064_F0002_V_V9L_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;
+}
+#txt_num2{width: 75%;}
+#price2{text-align: center; }
+#fin_price2{text-align:  center;}
+.cr_4{ background: black;}
+.cr_5{ background: #fff;}
+.cr_6{ background: #25aad4;}
+.cr_7{ background: yellow;}
+.cr_8{ background: #dbb8b8;}
+/* 3반 */
+.box3{
+    background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BG/1BG393/2C2TF0018/1BG393_2C2T_F0018_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;
+}
+#txt_num3{width: 75%;}
+#price3{text-align: center;}
+#fin_price3{text-align: center;}
+.cr_9{ background: #a8704b;}
+.cr_10{ background: #988748;}
+/* 4번 */
+.box4{
+    background: url(https://www.prada.com/content/dam/pradabkg_products/1/1BC/1BC499/ZO6F0002/1BC499_ZO6_F0002_V_OOO_SLF.jpg/_jcr_content/renditions/cq5dam.web.hebebed.1200.1200.jpg) no-repeat center / cover;
+}
+#txt_num4{width: 75%;}
+#price4{text-align: center;}
+#fin_price4{text-align:  center;}
+.cr_11{ background: #0d0d0f;}
+.cr_12{ background: #f0efeb;}
+.cr_13{ background: #bdc0c7;}
+.cr_14{ background: #fdcc32;}
+@media screen and (max-width:1440px) {
+    .cr_4,
+    .cr_5,
+    .cr_6,
+    .cr_7,
+    .cr_8{
+        width: 30px;
+        height: 30px;
+    }
+}
+@media screen and (max-width:1350px) {
+    .cr_4,
+    .cr_5,
+    .cr_6,
+    .cr_7,
+    .cr_8,
+    .cr_11,
+    .cr_12,
+    .cr_13,
+    .cr_14{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .box > h1{
+        font-size: 20px;
+    }
+    .box{
+        height: 60%;
+    }
+    .list2 > p{
+        font-size: 15px;
+    }
+    .list2_1 > div{
+        margin-top: 10px;
+    }
+}
+@media screen and (max-width:1220px) {
+    .box{
+        height: 50%;
+    }
+    .list {
+        height: 20px;
+        font-size: 15px;
+        line-height: 20px;
+        margin-top: 5px;
+        border-radius: 10px;
+    }
+    .list2_1{
+        font-size: 20px;
+    }
+    .right_box_1 > p:nth-child(5){
+        display: none;
+    }
+}
+@media screen and (max-width:1080px) {
+    .cr_4,
+    .cr_5,
+    .cr_6,
+    .cr_7,
+    .cr_8,
+    .cr_11,
+    .cr_12,
+    .cr_13,
+    .cr_14{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .box > h1{
+        font-size: 15px;
+    }
+    .right_box_1 > p:nth-child(6),
+    .right_box_1 > p:nth-child(7){
+        display: none;
+    }
+
+}
+@media screen and (max-width:810px) {
+    .cr_1,
+    .cr_2,
+    .cr_3,
+    .cr_11,
+    .cr_12,
+    .cr_13,
+    .cr_14{
+        width: 30px;
+        height: 30px;
+    }
+    button{
+        font-size: 10px;
+    }
+    .box > h1{
+        font-size: 12px;
+    }
+    .list {
+        background-color: #fff;
+        height: 0;
+        font-size: 10px;
+        line-height: 20px;
+        margin-top: 0;
+        color: black;
+    }
+    .box{
+        height: 40%;
+    }
+    .list2_1{
+        font-size: 15px;
+    }
+    .list2_1{
+        height: 30%;
+    }
+    .right_box_1 > p:nth-child(8){
+        display: none;
+    }
+    .list2{
+        margin-top: 20px;
+    }
+    .box_cr_color{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+@media screen and (max-width:700px) {
+    .right_box_1 > p:nth-child(2){
+        display: none;
+    }
+    .list2{
+        margin-top: 10px;
+    }
+    .list2 > p{
+        font-size: 10px;
+    }
+    .box{
+        height: 30%;
+    }
+    .box_cr{
+        height: 25px;
+    }
+
+    .cr_9,
+    .cr_10,
+    .cr_1,
+    .cr_2,
+    .cr_3,
+    .cr_4,
+    .cr_5,
+    .cr_6,
+    .cr_7,
+    .cr_8,
+    .cr_11,
+    .cr_12,
+    .cr_13,
+    .cr_14{
+        width: 10px;
+        height: 10px;
+    }
+    button{
+        font-size: 8px;
+    }
+    .box > h1{
+        font-size: 10px;
+    }
+}
+@media screen and (max-width:540px){
+    .box > h1{
+        font-size: 8px;
+    }
+    #menu {
+        width: 200px;
+    }
+    .list{
+        font-size: 7px;
+    }
+    .box_cr_color{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .list2_1{
+        font-size: 9px;
+    }
+    .list2 > p{
+        padding-left: 10px;
+    }
+}
+@media screen and (max-width:400px){
+    .box > h1{
+        font-size: 5px;
+    }
+    #menu {
+        width: 200px;
+    }
+    .list{
+        font-size: 5px;
+    }
+    .box_cr_color{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .list2_1{
+        font-size: 8px;
+    }
+    .list2 > p{
+        padding-left: 5px;
+        font-size: 8px;
+    }
+}
+/* 높이 */
+@media screen and (max-height:900px){
+    .list2{
+        margin-top: 10px;
+    }
+    .right_box_1 > p:nth-child(8),
+    .right_box_1 > p:nth-child(9),
+    .right_box_1 > p:nth-child(10){
+        display: none;
+    }
+}
+@media screen and (max-height:710px){
+    .list2{
+        margin-top: 5px;
+    }
+    .right_box_1 > p:nth-child(4),
+    .right_box_1 > p:nth-child(5),
+    .right_box_1 > p:nth-child(6){
+        display: none;
+    }
+    .list2_1 {
+        font-size: 15px;
+    }
+    .list {
+        height: 15px;
+        font-size: 10px;
+        line-height: 15px;
+        margin-top: 5px;
+    }
+    .list2_2 {
+        height: 30px;
+    }
+}

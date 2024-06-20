@@ -68,7 +68,7 @@
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user1/Desktop/Team_projects final/src/main/webapp/resources/imgs",
+    "last_opened_file_path": "C:/Users/user/Desktop/Team_projects final/src/main/webapp/resources/imgs",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,11 +85,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
+      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\css" />
+      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\js" />
       <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
       <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\WEB-INF\views" />
-      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgss" />
-      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\js" />
-      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\css" />
     </key>
   </component>
   <component name="RunManager">
@@ -206,6 +206,7 @@
       <workItem from="1717980295244" duration="335000" />
       <workItem from="1718682073528" duration="152000" />
       <workItem from="1718688651498" duration="234000" />
+      <workItem from="1718883696232" duration="610000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />

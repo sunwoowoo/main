@@ -1,0 +1,679 @@
+.main{
+    padding-top: 50px;
+}
+
+.pageActive {
+    color: #028267;
+    font-weight: 900;
+}
+.main_content_title {
+    margin: 50px auto 0;
+}
+/*//////////active/////////////     */
+.tmma_type{cursor: pointer; }
+.gender_type {cursor: pointer; }
+.birth_type {cursor: pointer; }
+.search_result {cursor: pointer; }
+.selected_cate {cursor: pointer; }
+.hide_select_cate {cursor: pointer; }
+
+
+
+
+.korea_act{
+    border:  2px solid #028267;
+    color: #028267;
+}
+.date_act{
+
+}
+.search_act{
+    color: white;
+    background-color: #028267;
+}
+.search_act_2{
+    color: white;
+    background-color: #fdd128;
+}
+.search_act_3{
+    color: white;
+    background-color: #14b3b9;
+}
+.korea_color{
+    color: #028267;
+}
+/* /////검색//////// */
+.search_area {
+    width: 300px;
+    padding: 15px 57px;
+    border:1px solid rgba(0, 0, 0, .15);
+    border-radius: 30px;
+}
+
+.korea_select_box {
+    position: relative;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.korea_hide_box {
+    z-index: 99999;
+    position: absolute;
+    left: 0;
+    top: 110px;
+
+    height: 400px;
+    border: 1px solid #028267;
+    background-color: white;
+
+    display: none;
+}
+
+.korea_date_hide > .korea_hide_x {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 30px;
+}
+.korea_date_hide{
+    width: 600px;
+}
+.link_area_box {
+    position: absolute;
+    font-size: 14px;
+    position: absolute;
+    left: 0;
+    top: 60px;
+}
+.link_date_box {
+    position: absolute;
+    font-size: 14px;
+    position: absolute;
+    left: 200px;
+    top: 60px;
+
+    display: flex;
+    flex-direction: column;
+}
+.korea_select_area_box {
+    position: relative;
+    width: 450px;
+    border: 0;
+    height: 200px;
+    line-height: 30px;
+    padding: 10px 30px;
+    color: #b0b0b0;
+    border: 1px solid;
+
+    border-radius: 30px;
+}
+.link_area {
+    margin-left: 10px;
+}
+.korea_hide_select {
+    /* height: 300px; */
+    /* padding: 30px; */
+    margin: 30px;
+    box-sizing: border-box;
+    border: 2px solid #028267;
+    width: 150px;
+
+}
+.korea_hide_txt {
+    width: 500px;
+    display: none;
+    gap: 20px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    flex-wrap: wrap;
+    padding: 30px;
+    margin: 45px;
+    box-sizing: border-box;
+    border: 2px solid #028267;
+}
+.link_korea_txt {
+    text-align: center;
+    display: block;
+    width: 42%;
+    height: 50px;
+    line-height: 50px;
+}
+.korea_hide_reset {
+    position: absolute;
+    right: 0;
+    top: 150px;
+}
+
+
+.korea_search_box {
+    position: absolute;
+    width: 300px;
+    height: 44px;
+    border: 1px solid #d9d9d9;
+    background-color: #f5f6f6;
+    color: rgba(0, 0, 0, .85);
+    font-size: 13px;
+    padding: 4px 11px;
+    box-sizing: border-box;
+    border-radius: 30px;
+    bottom: -140px;
+}
+.korea_search_input {
+    width: 90%;
+    height: 34px;
+    border: 0;
+    background-color: #f5f6f6;
+    padding-left: 10px;
+    outline: none;
+
+}
+
+
+/*  달력 */
+#demo {
+    position: relative;
+    z-index: 99999;
+    text-align: center;
+    margin: 20px;
+    border: 2px solid #028267;
+    width: 42%;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 30px;
+    color: #028267;
+    font-size: 13px;
+    font-weight: 900;
+
+    outline: none;
+}
+.daterangepicker {
+    z-index: 9999999999;
+}
+.daterangepicker .drp-buttons .btn {
+    margin-left: 8px;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 4px 10px;
+
+
+    border: 2px solid white;
+    color: #028267;
+    background-color: white;
+
+    border-radius: 10px;
+
+}
+
+.daterangepicker .drp-selected {
+    color: white
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+    background-color: #028267;
+}
+
+
+.daterangepicker .calendar-table .next span, .daterangepicker .calendar-table .prev span {
+    color: #fff;
+    border: solid  #028267;
+    border-width: 0 2px 2px 0;
+    border-radius: 0;
+    display: inline-block;
+    padding: 3px;
+}
+
+.drp-calendar {
+    background-color: #028267;
+}
+.daterangepicker:after {
+    top: -6px;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+    border-left: 6px solid transparent;
+    color: #028267;
+}
+
+.daterangepicker .drp-buttons {
+    background-color: #028267;
+}
+
+/* 본문  */
+
+.main_content {
+    position: relative;
+    padding: 50px ;
+    /*display: flex;*/
+    justify-content:space-between;
+    align-items: center;
+}
+.main_content_box {
+    position: relative;
+}
+.select_cate {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    cursor: pointer;
+}
+.modetour_duration {
+    display: flex;
+    flex-direction: column;
+}
+.trip_durtion {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.select_cate > img {
+    transform: translateY(-2px);
+}
+.select_cate > span {
+    color: #888888;
+}
+
+.pick_heart {
+    position: absolute;
+    right: 30px;
+    top: 80px;
+
+}
+.korea_select  {
+    width: 170px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    border: 1px solid;
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+
+.area_button {
+    border: 2px solid;
+    outline: none;
+    background-color: white;
+    padding: 7px 15px;
+}
+
+.select_button {
+    height: 44px;
+    line-height: 44px;
+
+}
+
+.main_content_title {
+    position: relative;
+    max-width: 1200px;
+    width: 100%;
+
+
+    display: flex;
+    justify-content: space-between;
+    margin: 50px auto 0;
+    border-top: 2px solid;
+    align-items: center;
+}
+
+
+
+.trip_item_cate_box {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+
+
+
+    background-color: #028267;
+    color: white;
+}
+
+.trip_tmma {
+    display: flex;
+    gap: 10px;
+}
+.tmma_type {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+.trip_gender {
+    display: flex;
+    gap: 10px;
+}
+.gender_type {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+.trip_birth {
+    display: flex;
+    gap: 10px;
+}
+.birth_type {
+    height: 30px;
+    line-height: 30px;
+    padding: 0px 10px;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+
+
+.write_logo {
+    position: fixed;
+    bottom: 95px;
+    right: 35px;
+    width: 26px;
+    height: 26px;
+    z-index: 9999;
+}
+.zzim_logo {
+    position: fixed;
+    bottom: 130px;
+    right: 32px;
+    width: 26px;
+    height: 26px;
+    z-index: 999999;
+    background: white;
+    border-radius: 50%;
+}
+.zzim_list_big_box {
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 430px;
+    height: 100vh;
+    background: #71bbbe;
+    z-index: 999;
+    display: none;
+    overflow: auto;
+}
+.show_zzim_list {
+    /*transform: translate(0,0);*/
+    left: 50%;
+    display: block;
+
+}
+
+.trip_item_txt > button {
+    border: 0;
+    outline: none;
+    padding: 5px;
+    background-color: white;
+    color: #028267;
+}
+.korea_hide_x {
+    position: absolute;
+    right: 15px;
+    bottom: 5px;
+}
+.hide_select_cate_box {
+    position: absolute;
+    right: 0px;
+    top: 60px;
+
+    width: 140px;
+    display: none;
+    flex-direction: column;
+
+    padding: 0 20px;
+    background: white;
+    box-shadow: rgb(223, 223, 223) 0px 0px 2px 2px;
+    box-sizing: border-box;
+    z-index: 99999;
+
+}
+.display {
+    display: block;
+}
+.hide_select_cate {
+    font-size: 13px;
+}
+
+/* 여행 정보 부분 */
+.main_content_box {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+.trip_item_box {
+    position: relative;
+    width: calc((100% - 80px) / 3);
+
+    padding: 20px;
+    border-radius: 30px;
+
+    box-sizing: border-box;
+
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    background: white;
+
+
+    box-shadow: rgb(223, 223, 223) 0px 0px 2px 2px;
+}
+.zzim_item_box {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    padding: 20px;
+    border-radius: 30px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    box-shadow: rgb(223, 223, 223) 0px 0px 2px 2px;
+}
+.trip_item_img {
+    height: 200px;
+
+    margin-top: 10px;
+    background-color: bisque;
+    box-sizing: border-box;
+}
+.trip_item_img > img{
+    width: 100%;
+    height: 100%;
+}
+
+.modetour_trip_id {
+    display: flex;
+
+    font-size: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modetour_customer {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.line {
+    width: 1px;
+    height: 12px;
+    background: rgb(219, 219, 219);
+}
+.modetour_duration {
+    margin: 0;
+}
+.modetour_trip_img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+
+
+.trip_item_txt {
+    margin: 10px 0;
+
+}
+.trip_item_title {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.trip_item_price {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.trip_txt {
+
+    margin: 5px 0;
+    font-size: 13px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+}
+
+.commu_imf_box {
+    width: 180px;
+}
+.commu_tilte_imf {
+}
+
+
+
+.pagination {
+    line-height: 26px;
+    height: 21px;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -50px;
+    display: flex;
+    gap: 5px;
+}
+
+
+
+
+@media screen and ( max-width:1200px) {
+    .content_area{
+        max-width: 1200px;
+    }
+    .main_content {
+        padding: 0;
+    }
+    .trip_item_box {
+        width: calc((100% - 80px) / 2);
+    }
+
+    .write_logo {
+        position: fixed;
+        bottom: 60px;
+        right:  10px;
+        width: 26px;
+        height: 26px;
+    }
+}
+
+
+@media screen and ( max-width:550px) {
+    .main {
+        padding-top: 0;
+    }
+    .content_area{
+        max-width: 550px;
+    }
+    .main_content {
+        padding: 0;
+    }
+    .trip_item_box {
+        width:100%
+    }
+
+    .main_content_title {
+        height: 130px;
+        position: relative;
+        display: block;
+        margin: 140px auto 0;
+    }
+
+    .trip_item_box {
+        width:100%;
+        padding: 20px 0;
+    }
+    .select_cate {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .trip_tmma {
+        font-size: 13px;
+    }
+
+
+
+    .korea_select_box {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .korea_select_area_box {
+        width: 300px;
+        height: 180px;
+        line-height: 30px;
+        padding: 15px 30px;
+    }
+
+    .korea_select {
+        width: 131px;
+        height: 30px;
+        line-height: 30px;
+    }
+
+    .korea_hide_box {
+        width: 100%;
+    }
+    .select_button {
+        margin: 10px 56px 0;
+        height: 30px;
+        line-height: 30px;
+    }
+
+
+    .korea_area_hide {
+        flex-direction: column;
+    }
+
+    #demo {
+
+        width: auto;
+        margin: 0;
+        padding: 30px 40px;
+    }
+
+    .korea_date_hide > .korea_hide_x {
+        position: absolute;
+        top: 630px;
+        right: 20px;
+        height: 30px;
+    }
+    .korea_hide_box {
+        height: 680px;
+
+    }
+
+    .daterangepicker {
+        left:42px;
+    }
+}
+

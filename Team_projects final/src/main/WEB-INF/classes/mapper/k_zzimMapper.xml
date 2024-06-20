@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/schema/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bitstudy.app.dao.k_zzimMapper">
+    <!--  모든 찜목록 불러오기 -->
+    <select id="selectAllzzim" resultType="k_zzimDto">
+        select * from k_zzim
+    </select>
+    <!--    내가 찜한 목록 불러오기-->
+    <select id="selectMyzzim" parameterType="String" resultType="korea_tourDto">
+        select *
+        from k_zzim as KZ
+        left join korea_tour as KT
+        on KZ.k_no=KT.k_no
+        where u_id =#{u_id}
+
+    </select>
+
+    <!-- 한 게시글에서 내가 찜했는지 불러오기-->
+    <select id="selectIszzim" parameterType="k_zzimDto" resultType="k_zzimDto">
+        select * from k_zzim
+        where k_no =#{k_no} and u_id=#{u_id}
+    </select>
+
+    <!--    찜 등록하기-->
+    <insert id="insertzzim" parameterType="k_zzimDto">
+        insert into k_zzim (u_id, k_no)
+        values (#{u_id}, #{k_no} )
+    </insert>
+
+    <!--    찜 삭제하기-->
+    <delete id="deletezzim" parameterType="k_zzimDto">
+        delete from k_zzim where k_no=#{k_no} and u_id=#{u_id}
+    </delete>
+
+<select id="test" parameterType="map" resultType="k_zzimDto">
+<!--    <if test="k_no != null and k_no != '' and u_id != null and u_id != ''">-->
+    select * from k_zzim
+<!--    where k_no=#{k_no} and u_id=#{u_id}-->
+<!--    </if>-->
+</select>
+
+
+
+
+</mapper>

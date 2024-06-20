@@ -1,0 +1,1780 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!-- 현재 파일이 XML 파일이기 때문에 맨 위에 XML 선언이 온다 -->
+        <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/schema/mybatis-3-mapper.dtd"> <!-- 규칙을 정의한 DTD 선언 -->
+
+        <!-- 게시판 관련된 모든 sql문들을 다 여기에 넣을거임 -->
+
+        <!-- SQL Mapper 파일은 루트 엘리먼트 <mapper>를 작성하는거로 시작함.
+                <mapper>의 namespace 속성은 자바의 패키지처럼 sql문들을 묶는 용도로 사용(부모)
+        -->
+<mapper namespace="com.bitstudy.app.dao.korea_tourMapper">
+<!--    namespace 는 mybatis-config.xml 에 BoardDto 로 주소 맞춰놨음(Alias)
+        BoardDao에서 넘어오는 parameterType 이 bno 라는 정수형 값이기 때문에  parameterType="int" 라고 썼고
+        select 문을 돌려서 나온 결과를 BoardDto에 담아서 리턴해줄거기 때문에 resultType="BoardDto" 로 썼음
+-->
+<select id="count" resultType="int">
+    SELECT count(*) FROM korea_tour
+</select>
+<!-- 게시글 하나 정보 가져오기-->
+<select id="select" parameterType="int" resultType="korea_tourDto">
+<!--    SELECT * from korea_tour where k_no = #{k_no}-->
+
+    select KT.*, U.* from korea_tour as KT
+    left join user as U
+    on KT.k_writer= U.id
+    where k_no=#{k_no}
+</select>
+
+<!--    korea_tour 에 있는 모든 정보 가져오기-->
+<select id="selectAll" resultType="korea_tourDto">
+    select * from korea_tour
+    order by k_reg desc , k_no desc
+</select>
+
+<!--  게시판용 - 특정 번째부터 n개 가져오기. 최신글 순으로 불러오기   -->
+<select id="selectPage" parameterType="map" resultType="korea_tourDto">
+    select * from korea_tour
+    order by k_reg desc, k_no desc
+    limit #{offset} , #{pageSize}
+</select>
+
+<!--    deleteAll-->
+<delete id="deleteAll">
+    <!--        delete from korea_tour-->
+    truncate korea_tour
+</delete>
+
+<!--    deleteEach - 회원용 -->
+<delete id="delete" parameterType="map">
+    delete from korea_tour where k_no=#{k_no} and k_writer=#{k_writer}
+</delete>
+
+<!--    deleteEach - 관리자용 -->
+<delete id="deleteForAdmin" parameterType="int">
+    delete from korea_tour where k_no=#{k_no}
+</delete>
+
+<!--   글쓰기 -->
+<insert id="insert" parameterType="korea_tourDto">
+    insert into korea_tour (k_title, k_content,k_state,k_city,k_start,k_end, k_writer,k_tag, k_price, k_sonnel, k_tra_img)
+    values
+    (#{k_title}, #{k_content}, #{k_state},#{k_city},#{k_start},#{k_end}, #{k_writer},#{k_tag}, #{k_price}, #{k_sonnel}, #{k_tra_img} )
+</insert>
+
+<!--   수정 - 기존에 있는 글 수정 -->
+<update id="update" parameterType="korea_tourDto">
+    update korea_tour set K_title=#{k_title} , k_content=#{k_content}
+    where k_no = #{k_no} and k_writer=#{k_writer}
+</update>
+<!--   수정 - 기존에 있는 글 수정 -->
+<update id="update2" parameterType="map">
+    update korea_tour set title=#{title} , content=#{content}
+    where k_no = #{k_no} and k_writer=#{k_writer}
+</update>
+
+
+<!--   조회수 올리는 쿼리 -->
+<update id="increaseViewCount" parameterType="int">
+    update korea_tour set k_view_count = k_view_count +1
+    where k_no = #{k_no}
+</update>
+
+<!--   댓글 개수 증감(+1, -1) -->
+<update id="updateCommentCount" parameterType="map">
+    update korea_tour set k_comment_count=k_comment_count + #{count}
+    where k_no=#{k_no}
+</update>
+
+
+
+<!--&lt;!&ndash;  모든 찜목록 불러오기 &ndash;&gt;-->
+<!--    <select id="selectAllzzim" resultType="k_zzimDto">-->
+<!--        select * from k_zzim-->
+<!--    </select>-->
+<!--&lt;!&ndash;    내가 찜한 목록 불러오기&ndash;&gt;-->
+<!--    <select id="selectMyzzim" parameterType="String" resultType="ktDto">-->
+<!--        select *-->
+<!--        from k_zzim as KZ-->
+<!--        left join korea_tour as KT-->
+<!--        on KZ.k_no=KT.k_no-->
+<!--        where u_id =#{u_id}-->
+
+<!--    </select>-->
+
+<!--    &lt;!&ndash; 한 게시글에서 내가 찜했는지 불러오기&ndash;&gt;-->
+<!--    <select id="selectIszzim" parameterType="k_zzimDto" resultType="k_zzimDto">-->
+<!--        select * from k_zzim-->
+<!--        where k_no =#{k_no} and u_id=#{u_id}-->
+<!--    </select>-->
+
+<!--    &lt;!&ndash;    찜 등록하기&ndash;&gt;-->
+<!--    <insert id="insertzzim" parameterType="k_zzimDto">-->
+<!--        insert into k_zzim (u_no, k_no)-->
+<!--        values (#{u_no}, #{k_no} )-->
+<!--    </insert>-->
+
+<!--&lt;!&ndash;    찜 삭제하기&ndash;&gt;-->
+<!--    <delete id="deletezzim" parameterType="k_zzimDto">-->
+<!--        delete from korea_tour where k_no=#{k_no} and u_id=#{u_id}-->
+<!--    </delete>-->
+
+
+
+<!--    검색 -->
+<select id="searchSelectPage" parameterType="k_searchDto" resultType="korea_tourDto">
+<!--    select * from korea_tour-->
+    select KT.*, U.birth , U.gender
+    from korea_tour as KT
+    left join user as U
+    on KT.k_writer= U.id
+    where true
+
+    <choose>
+
+<!--       키워드 있을 때 -->
+        <when test='keyword!=""'>
+            and k_title like concat('%', #{keyword}, '%')
+            or k_content like concat('%', #{keyword}, '%')
+            or k_state like concat('%', #{keyword}, '%')
+            or k_city like concat('%', #{keyword}, '%')
+            <choose>
+                <!--      날짜 정했을 때      -->
+                <when test="k_start !=''">
+                    and k_start <![CDATA[ >= ]]>  #{k_start}
+                    and k_end <![CDATA[ <= ]]> #{k_end}
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                    <!--    도 정했을 때    -->
+                                    <when test='k_state !="전체"'>
+                                    and k_state like concat('%', #{k_state}, '%')
+                                        <choose>
+                                            <when test="gender!=-1">
+                                                and gender = #{gender}
+                                                <choose>
+                                                    <when test="birth!=''">
+                                                        and (TRUNCATE((TO_DAYS(NOW()) - STR_TO_DAYS(U.birth,'%Y-%m-%d')) / 365, -1)) =
+                                                        #{birth}
+                                                    </when>
+                                                    <otherwise>
+                                                        and true
+                                                    </otherwise>
+                                                </choose>
+                                            </when>
+                                            <otherwise>
+                                                <choose>
+                                                    <when test="birth!=''">
+                                                        and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                        #{birth}
+                                                    </when>
+                                                    <otherwise>
+                                                        and true
+                                                    </otherwise>
+                                                </choose>
+                                            </otherwise>
+                                        </choose>
+                                    </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을 때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </when>
+                <!--      날짜  안 정했을 때      -->
+                <otherwise>
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을 떄 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </otherwise>
+            </choose>
+        </when>
+        <!--      키워드 없을 때      -->
+        <otherwise>
+            <choose>
+                <!--      날짜 정했을 때      -->
+                <when test="k_start !=''">
+                    and k_start <![CDATA[ >= ]]>  #{k_start}
+                    and k_end <![CDATA[ <= ]]> #{k_end}
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </when>
+                <!--      날짜  안 정했을 때      -->
+                <otherwise>
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth !=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </otherwise>
+            </choose>
+
+        </otherwise>
+
+
+
+
+
+    </choose>
+
+    order by
+    <choose>
+        <when test='k_sort=="출발 빠른 순"'>
+            k_start asc ,k_reg desc, k_no desc
+        </when>
+        <when test='k_sort=="경비 높은 순"'>
+            k_price desc ,k_reg desc, k_no desc
+        </when>
+        <when test='k_sort=="경비 낮은 순"'>
+            k_price asc ,k_reg desc, k_no desc
+        </when>
+
+        <otherwise>
+            k_reg desc, k_no desc
+        </otherwise>
+    </choose>
+
+    limit #{offset}, #{pageSize}
+</select>
+
+<!--  검색 결과가 몇개 있는지 알아야 pagination 할 수 있으니깐 필요  -->
+<select id="searchSelectCount" parameterType="k_searchDto" resultType="int">
+    select count(*)
+    from korea_tour as KT
+    left join user as U
+    on KT.k_writer= U.id
+    where true
+
+    <choose>
+
+        <!--       키워드 있을 때 -->
+        <when test='keyword!=""'>
+            and k_title like concat('%', #{keyword}, '%')
+            or k_content like concat('%', #{keyword}, '%')
+            or k_state like concat('%', #{keyword}, '%')
+            or k_city like concat('%', #{keyword}, '%')
+            <choose>
+                <!--      날짜 정했을 때      -->
+                <when test="k_start !=''">
+                    and k_start <![CDATA[ >= ]]>  #{k_start}
+                    and k_end <![CDATA[ <= ]]> #{k_end}
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을 때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </when>
+                <!--      날짜  안 정했을 때      -->
+                <otherwise>
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을 떄 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </otherwise>
+            </choose>
+        </when>
+        <!--      키워드 없을 때      -->
+        <otherwise>
+            <choose>
+                <!--      날짜 정했을 때      -->
+                <when test="k_start !=''">
+                    and k_start <![CDATA[ >= ]]>  #{k_start}
+                    and k_end <![CDATA[ <= ]]> #{k_end}
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </when>
+                <!--      날짜  안 정했을 때      -->
+                <otherwise>
+                    <choose>
+                        <!--   태그 있을 때 -->
+                        <when test="k_tag !=''">
+                            and k_tag like concat('%', #{k_tag}, '%')
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </when>
+                        <!-- 태그 없을때 -->
+                        <otherwise>
+                            <choose>
+                                <!--시 있을 때 -->
+                                <when test='k_city!="전체"'>
+                                    and k_city like concat('%', #{k_city}, '%')
+                                    <choose>
+                                        <when test="gender!=-1">
+                                            and gender = #{gender}
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <otherwise>
+                                            <choose>
+                                                <when test="birth!=''">
+                                                    and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                    #{birth}
+                                                </when>
+                                                <otherwise>
+                                                    and true
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </when>
+                                <!--  시 없을 때 -->
+                                <otherwise>
+                                    <choose>
+                                        <!--    도 정했을 때    -->
+                                        <when test='k_state !="전체"'>
+                                            and k_state like concat('%', #{k_state}, '%')
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </when>
+                                        <!--    도 안 정했을 때    -->
+                                        <otherwise>
+                                            <choose>
+                                                <when test="gender!=-1">
+                                                    and gender = #{gender}
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </when>
+                                                <otherwise>
+                                                    <choose>
+                                                        <when test="birth!=''">
+                                                            and (TRUNCATE((TO_DAYS(NOW()) - TO_DAYS(birth)) / 365, -1)) =
+                                                            #{birth}
+                                                        </when>
+                                                        <otherwise>
+                                                            and true
+                                                        </otherwise>
+                                                    </choose>
+                                                </otherwise>
+                                            </choose>
+                                        </otherwise>
+                                    </choose>
+                                </otherwise>
+                            </choose>
+                        </otherwise>
+                    </choose>
+                </otherwise>
+            </choose>
+
+        </otherwise>
+
+
+
+
+
+    </choose>
+</select>
+
+
+    <!--도 불러오기-->
+    <select id="getDoList" resultType="Do_areaDTO">
+        select * from do_area
+        order by do_id asc
+    </select>
+
+    <!--시 불러오기-->
+    <select id="getSiList" parameterType="int" resultType="Si_areaDTO">
+        select * from si_area
+        where do_id=#{do_id}
+        order by si_id asc
+    </select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

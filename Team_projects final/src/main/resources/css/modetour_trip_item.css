@@ -1,0 +1,554 @@
+
+
+
+
+.display_none {
+    display: none;
+}
+
+.displayNone {
+    display: none;
+}
+.position_fixed {
+    position: fixed;
+    width: 600px;
+    height: 200px;
+    z-index: 99999;
+    left: 100px;
+    bottom: 200px;
+    background: #028267;
+    border-radius: 30px;
+
+}
+.popup_txt_box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    width: 70%;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+.add_service_txt {
+    width: 70%;
+    outline: none;
+    border: 0;
+
+    font-size: 14px;
+    padding: 10px 0;
+}
+.btn_submit_comment,
+.btn_comment {
+
+    height: 30px;
+    border: 0;
+    color: #028267;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 3px 5px;
+}
+select[readonly] {
+    /*background-color: #ddd;*/
+    pointer-events: none;
+}
+input[readonly]{
+    border: 0;
+    pointer-events: none;
+}
+
+.main {
+    padding-top: 60px;
+}
+.item_img_box {
+    width: 100%;
+
+    padding-bottom: 50px;
+}
+.trip_item_box {
+    width: 100%;
+    height: 500px;
+    position: relative;
+
+    display: flex;
+    overflow: hidden;
+}
+
+.trip_item_img {
+    width: 100%;
+    height: 100%;
+
+    background-color: blanchedalmond;
+}
+
+
+.trip_up_load{
+    display: none;
+}
+.trip_file_button {
+    margin-top: 10px;
+
+    display: inline-block;
+    padding: 5px 8px;
+    border: 1px solid  rgb(0 217 163);;
+
+    color: white;
+    font-weight: 700;
+
+    background-color: #028267;
+    box-sizing: border-box;
+
+    border-radius: 5px;
+
+    /*transform: translateX();*/
+}
+
+
+.item_btn {
+    width: 50px;
+    height: 50px;
+
+    position: absolute;
+    top: 50%;
+
+    transform: translateY( -50%);
+
+    border: 1px solid;
+    z-index: 9;
+
+    background-color: blue;
+}
+.left_btn {
+    left: 0;
+}
+.right_btn{
+    right:0;
+}
+
+
+
+/* 메인 주요일정 */
+.main_content {
+    position: relative;
+}
+.main_service_box {
+    width: 100%;
+}
+
+.title_put_box {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+
+    border: 2px solid rgb(0 217 163);
+    border-radius: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.trip_schedule_box {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+
+    border: 2px solid rgb(0 217 163);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+.trip_schedule_title {
+    width: 100%;
+    height: 28px;
+
+    padding:  22px 0;
+}
+
+.trip_schedule_txt {
+    display: flex;
+    flex-direction: column;
+}
+
+.trip_korea_imf {display: flex; gap: 10px; align-items: center;}
+
+
+.trip_schedule_txt_title {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+}
+.trip_schedule_txt_title > p {
+    margin: 0;
+    height: 21px;
+}
+
+.put_txt_title {
+    width: 80%;
+    height: 30px;
+    border: 0;
+    outline: none;
+
+    font-size: 20px;
+}
+.put_txt {
+    width: 80%;
+    height: 30px;
+    border: 0;
+    outline: none;
+
+}
+
+
+/* 메인 상품 가격 */
+.trip_price_box {
+    position: relative;
+    width: 856px;
+}
+
+.trip_price_title {
+    width: 100%;
+    height: 28px;
+
+    padding:  22px 0;
+
+}
+
+.trip_price_txt {
+    width:80%;
+    height: 303px;
+}
+/* 메인 핵심 포인트 */
+.trip_important_box {
+    position: relative;
+    width: 856px;
+}
+
+.trip_important_title {
+    width: 100%;
+    height: 28px;
+
+    padding:  22px 0;
+    border-bottom:1px solid;
+
+}
+
+.trip_important_txt {
+    width: 100%;
+    height: 303px;
+
+
+
+}
+.trip_price_txt textarea {
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+
+    border: 2px solid rgb(0 217 163);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.main_buy_box {
+    position: absolute;
+    top: 74px;
+    right: 0;
+    width: 304px;
+    height: 800px;
+    background-color: aquamarine;
+}
+
+/* 여행 상세 정보 */
+.trip_dp_box {
+    padding-top: 50px;
+}
+.trip_dp_title {
+    width: 100%;
+    height: 28px;
+
+    padding:  22px 0;
+
+}
+.trip_dp_select {
+    display: flex;
+    width: 100%;
+    height: 60px;
+
+    text-align: center;
+    padding-bottom: 50px;
+}
+.review_title {
+    width: 50%;
+    border: 1px solid;
+}
+
+
+/* 서비스 정보들    아마 그리드 사용해서 해야함 */
+
+
+
+
+
+.side_box {
+    width: 28%;
+    height:100%;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 2px solid rgb(0 217 163);
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.side_title {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.cstomer_img_box {
+    margin: 10px 0;
+
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(203, 203, 203);
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.cstomer_img_box > span {
+    white-space: nowrap;
+}
+.cstomer_img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.cstomer_imf {
+    padding: 30px 0 ;
+
+}
+.return_btn {
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+
+
+    border: 0;
+
+    color: white;
+    font-weight: 700;
+    background-color: #028267;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.resize_btn {
+    position: absolute;
+    right: 100px;
+    bottom: -35px;
+
+
+    border: 0;
+
+    color: white;
+    font-weight: 700;
+    background-color: #028267;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
+.remove_btn {
+
+    position: absolute;
+    right: 50px;
+    bottom: -35px;
+
+    border: 0;
+
+    color: white;
+    font-weight: 700;
+    background-color: #028267;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    outline: none;
+}
+.confirm_btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 150px;
+    height: 60px;
+
+    border: 0;
+
+    color: white;
+    font-weight: 700;
+    background-color: #028267;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+    outline: none;
+}
+.btn_box {
+    position: relative;
+    height: 100px;
+    z-index: 9999;
+}
+
+/* 리뷰 서비스 */
+
+
+.trip_dp_box {
+    position: relative;
+    padding-bottom: 50px;
+
+}
+.review {
+    width: 100%;
+    display: flex;
+    gap: 30px;
+}
+.add_service_txt {
+    width: 70%;
+    padding: 10px;
+
+    border: 0;
+    outline: none;
+    box-sizing: border-box;
+    border-bottom: 1px solid;
+}
+
+.review_txt_box {
+    display: flex;
+    justify-content: space-between;
+
+    /*margin-top: 60px;*/
+
+    padding: 10px 0;
+
+    border-top: 1px solid rgb(192, 192, 192);
+    border-bottom: 1px solid rgb(192, 192, 192);
+
+    background: #d3e8e8;
+}
+.review_box {
+    display: flex;
+    flex-direction: column;
+}
+.review_id {
+    display: flex;
+}
+.review_id > p{
+    margin: 0;
+}
+.review_change {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.review_change > button {
+    height: 30px;
+}
+.comment_title {
+    width: 500px;
+    height: 80px;
+    background: #d3e8e8;
+}
+
+@media screen and ( max-width:1200px) {
+    .content_area{
+        max-width: 1200px;
+    }
+
+    .trip_schedule_box ,
+    .title_put_box {
+        width: 80%;
+    }
+
+    .side_box {
+        margin-top: 20px;
+
+        width:  80%;
+        height: 200px;
+        position: static;
+        right: 0;
+        left: 0;
+
+    }
+    .trip_price_box {
+        width: auto;
+    }
+
+    .trip_id_imf {
+        display: flex;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .cstomer_imf {
+        padding: 10px 0 20px;
+    }
+
+        .confirm_btn {
+            /* position: absolute; */
+            /* bottom: 10px; */
+            top: auto;
+            /* left: auto; */
+            transform: translateX(0);
+        }
+}
+
+
+
+@media screen and ( max-width:700px) {
+    .content_area{
+        max-width: 700px;
+    }
+    .trip_price_txt ,
+    .trip_schedule_box ,
+    .title_put_box {
+        width: 100%;
+    }
+
+}
+
+
+@media screen and ( max-width:500px) {
+    .content_area{
+        max-width: 500px;
+    }
+    .trip_schedule_box {
+        padding: 10px;
+        font-size: 13px;
+        gap: 10px;
+    }
+    .put_txt {
+        font-size: 13px;
+    }
+    .side_box {
+        width: 100%;
+    }
+    .confirm_btn {
+        width: 100px;
+        height: 35px;
+
+    }
+}
