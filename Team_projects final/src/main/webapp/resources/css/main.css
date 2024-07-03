@@ -51,7 +51,7 @@ header > div{
     height: 400px;
     position: absolute;
     right: 300px;
-    bottom: 200px;
+    bottom: 10px;
 }
 h2{
     font-family: "Gamja Flower", sans-serif;
@@ -105,8 +105,8 @@ main{
 .about_img{
     width: 400px;
     height: 400px;
-    background:url(/resources/imgs/1.PNG)no-repeat center/ cover;
-    background-size: 200px;
+    border-radius: 50%;
+    background:url(/resources/imgs/2.jpg)no-repeat center/ cover;
 }
 .profile, .history{
     font-size: 25px;

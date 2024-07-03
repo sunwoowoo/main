@@ -55,10 +55,10 @@
             <div class="header_top_left_box">
                 <div class="swiper-container header_logo_box" >
                     <div class="swiper-wrapper">
-                        <a href="<c:url value="/"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
-                        <a href="<c:url value="/"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
-                        <a href="<c:url value="/"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
-                        <a href="<c:url value="/"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
                     </div>
                 </div>
                 <form action="" class="search_form">
@@ -82,19 +82,8 @@
             <div class="header_top_right_box">
                 <svg class="!bg-transparent mini_header_logo" height="26" id="icon_menu_26" viewBox="0 0 26 26" width="26" xmlns="http://www.w3.org/2000/svg"><rect data-name="사각형 826" fill="none" height="26" id="사각형_826" width="26"></rect><g data-name="그룹 934" id="그룹_934" transform="translate(-1.422 -1)"><path d="M4.9,5.107H23.489" data-name="패스 9977" fill="none" id="패스_9977" stroke="#111" stroke-linecap="round" stroke-width="2" transform="translate(0.226 1.893)"></path><path d="M4.9,5.107H23.489" data-name="패스 9978" fill="none" id="패스_9978" stroke="#111" stroke-linecap="round" stroke-width="2" transform="translate(0.226 8.893)"></path><path d="M4.9,5.107H23.489" data-name="패스 9979" fill="none" id="패스_9979" stroke="#111" stroke-linecap="round" stroke-width="2" transform="translate(0.226 15.893)"></path></g></svg>
                 <a href="<c:url value="/login"/>" class="sub_icon">
-                    <span>
-                        <a href="<c:url value='${logInOutLink} '/>">${logInOutTxt}</a>
-                    </span>
-                    <%--                    <img src="/resources/img/logo/icon_mypage_26.svg">--%>
+                    <span>로그인</span>
                 </a>
-                <c:choose>
-                    <c:when test="${ sessionScope.id==null }">
-                        <a href="<c:url value='/sign_up'/>">회원가입</a>
-                    </c:when>
-                    <c:otherwise>
-                        ${userId} 님
-                    </c:otherwise>
-                </c:choose>
                 <a href="<c:url value="/mypage"/>" class="sub_icon">
                     <img src="/resources/img/logo/icon_reservation_26.svg">
                     <span>마이페이지</span>

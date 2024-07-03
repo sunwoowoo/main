@@ -27,10 +27,10 @@
             <div class="header_top_left_box">
                 <div class="swiper-container header_logo_box" >
                     <div class="swiper-wrapper">
-                        <a class="swiper-slide"><div class="main_logo">로고</div></a>
-                        <a class="swiper-slide"><div class="main_logo">로고</div></a>
-                        <a class="swiper-slide"><div class="main_logo">로고</div></a>
-                        <a class="swiper-slide"><div class="main_logo">로고</div></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
+                        <a href="<c:url value="/index"/>" class="swiper-slide"><img src="/resources/img/logo/main_Logo.png"></a>
                     </div>
                 </div>
                 <form action="" class="search_form">

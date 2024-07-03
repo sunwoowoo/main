@@ -52,9 +52,6 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2hcxnxzVrGYoD7XyWidCD5Tt5Xs" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="1" id="Add" />
-  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -66,9 +63,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "Tomcat Server.Tomcat 9.0.88.executor": "Run",
     "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/user1/Desktop/Team_projects final/src/main/webapp/resources/imgs",
+    "last_opened_file_path": "C:/Users/user1/Desktop/Team_projects final/src/main/webapp/WEB-INF/views",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -85,11 +81,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
       <recent name="C:\Users\user1\Desktop\Team_projects final\src\main\webapp\WEB-INF\views" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgss" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\js" />
       <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\css" />
+      <recent name="C:\Users\user\Desktop\Team_projects final\src\main\webapp\resources\imgs" />
     </key>
   </component>
   <component name="RunManager">
@@ -204,8 +200,12 @@
       <workItem from="1717938016149" duration="5681000" />
       <workItem from="1717979484203" duration="758000" />
       <workItem from="1717980295244" duration="335000" />
-      <workItem from="1718682073528" duration="152000" />
-      <workItem from="1718688651498" duration="234000" />
+      <workItem from="1719203457095" duration="12000" />
+      <workItem from="1719362138571" duration="18000" />
+      <workItem from="1719362796559" duration="21000" />
+      <workItem from="1719362937642" duration="659000" />
+      <workItem from="1719966312161" duration="68000" />
+      <workItem from="1719966581281" duration="486000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <option name="closed" value="true" />
