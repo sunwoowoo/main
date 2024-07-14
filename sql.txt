@@ -1,0 +1,381 @@
+create table board
+(
+    b_no         int unsigned auto_increment
+        primary key,
+    b_title      varchar(255)                       not null,
+    b_content    text                               not null,
+    b_writer     varchar(255)                       not null,
+    b_view_count int      default 0                 null,
+    b_date       datetime default CURRENT_TIMESTAMP null,
+    b_place      varchar(255)                       not null
+);
+create table board_img
+(
+    ki_no  int unsigned auto_increment
+        primary key,
+    b_no   int          not null,
+    ki_src varchar(255) null
+);
+create table comment
+(
+    c_no      int unsigned auto_increment
+        primary key,
+    b_no      int                                not null,
+    c_content varchar(255)                       not null,
+    c_writer  varchar(255)                       not null,
+    c_date    datetime default CURRENT_TIMESTAMP null
+);
+create table do_area
+(
+    do_id   int auto_increment
+        primary key,
+    do_area varchar(255) not null
+);
+create table grade
+(
+    g_grades int unsigned auto_increment
+        primary key,
+    u_no     int                                not null,
+    k_no     int                                not null,
+    g_grade  int                                not null,
+    g_review varchar(255)                       null,
+    g_date   datetime default CURRENT_TIMESTAMP null
+);
+create table k_comment
+(
+    c_no        int unsigned auto_increment
+        primary key,
+    c_content   text                               not null,
+    c_commenter varchar(255)                       not null,
+    k_no        int                                not null,
+    parent_c_no int                                null,
+    c_state     varchar(255)                       not null,
+    c_regdate   datetime default CURRENT_TIMESTAMP not null,
+    c_update    timestamp                          null
+);
+create table k_zzim
+(
+    z_no int unsigned auto_increment
+        primary key,
+    u_id varchar(255) null,
+    k_no int          not null
+);
+create table korea_tour
+(
+    k_no      int unsigned auto_increment
+        primary key,
+    k_title   varchar(255)                       not null,
+    k_content text                               not null,
+    k_state   varchar(255)                       not null,
+    k_city    varchar(255)                       not null,
+    k_start   varchar(255)                       not null,
+    k_end     varchar(255)                       not null,
+    k_writer  varchar(255)                       not null,
+    k_tag     varchar(255)                       not null,
+    k_price   int                                not null,
+    k_sonnel  int                                not null,
+    k_tra_img varchar(255)                       null,
+    k_reg     datetime default CURRENT_TIMESTAMP not null
+);
+create table recommend_list
+(
+    rl_no int unsigned auto_increment
+        primary key,
+    b_no  int not null,
+    u_no  int not null
+);
+create table record
+(
+    r_no           int unsigned auto_increment
+        primary key,
+    k_no           int                                not null,
+    u_no           int                                not null,
+    r_situation    tinyint(1)                         not null,
+    r_application_ datetime default CURRENT_TIMESTAMP null,
+    r_answer       datetime default CURRENT_TIMESTAMP null
+);
+create table reservation
+(
+    o_no int unsigned auto_increment
+        primary key,
+    u_no int not null,
+    kno  int not null
+);
+create table si_area
+(
+    si_id   int auto_increment
+        primary key,
+    si_area varchar(255) not null,
+    do_id   int          not null
+);
+create table user
+(
+    seqno   int unsigned auto_increment
+        primary key,
+    id      varchar(255) not null,
+    pw      varchar(255) not null,
+    name    varchar(255) not null,
+    email   varchar(255) not null,
+    birth   varchar(255) not null,
+    picture varchar(255) null,
+    gender  varchar(255) null,
+    constraint id
+        unique (id)
+);
+create table zzim
+(
+    z_no int unsigned auto_increment
+        primary key,
+    u_no int not null,
+    k_no int not null
+);
+insert into Do_area ( do_id, do_area ) values (null, '전체' );
+insert into Do_area ( do_id, do_area ) values (null, '강원도' );
+insert into Do_area ( do_id, do_area ) values (null, '경기도' );
+insert into Do_area ( do_id, do_area ) values (null, '충청도' );
+insert into Do_area ( do_id, do_area ) values (null, '경상도' );
+insert into Do_area ( do_id, do_area ) values (null, '전라도' );
+insert into Do_area ( do_id, do_area ) values (null, '제주도' );
+
+
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 1 );
+
+
+
+-- 강원
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 2 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '강릉', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '동해', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '삼척', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '속초', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '원주', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '춘천', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '태백', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고성', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '양구', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '양양', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영월', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '인제', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '정선', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '철원', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '평창', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '홍천', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '화천', 2);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '횡성', 2);
+
+
+#  --경기
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 3 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '서울', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '세종', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '인천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고양', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '과천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '광명', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '광주', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '구리', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '군포', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '김포', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '남양주', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '동두천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '부천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '성남', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '수원', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '시흥', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '안산', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '안성', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '안양', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '오산', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '용인', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '의왕', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '의정부', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '이천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '파주', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '평택', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '하남', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '화성', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '가평', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '양주', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '양평', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '여주', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '연천', 3);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '포천', 3);
+
+# --충청
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 4 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '대전', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '천안', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '공주', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '보령', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '아산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '서산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '논산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '계릉', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '당진', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '금산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '부여', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '서천', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '청양', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '홍성', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '예산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '태안', 4);
+
+insert into Si_area ( si_id , si_area, do_id ) values (null,  '제천',4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '청주', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '충주', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '괴산', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '단양', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '보은', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영동', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '옥천', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '음성', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '진천', 4);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '청원', 4);
+
+
+# --경상
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 5 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '부산', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '대구', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '울산', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '거제', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '김해', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '마산', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '밀양', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '사천', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '양산', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '진주', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '진해', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '창원', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '통영', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '거창', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고성', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '남해', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '산청', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '의령', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '창녕', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '하동', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '함안', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '함양', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '합천', 5);
+
+
+insert into Si_area ( si_id , si_area, do_id ) values (null, '경산', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '경주', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '구미', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '김천', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '문경', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '상주', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '안동', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영주', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영천', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '포항', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고령', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '군위', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '봉화', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '성주', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영덕', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영양', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '예천', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '울릉', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '울진', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '의성', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '청도', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '청송', 5);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '칠곡', 5);
+
+
+# --전라
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 6 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '광주', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '광양', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '나주', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '목포', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '순천', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '여수', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '강진', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고흥', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '곡성', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '구례', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '담양', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '무안', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '보성', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '신안', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영광', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '영암', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '완도', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '장성', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '장흥', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '진도', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '함평', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '해남', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '화순', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '군산', 6);
+
+
+insert into Si_area ( si_id , si_area, do_id ) values (null, '김제', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '남원', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '익산', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전주', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '정읍', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '고창', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '무주', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '부안', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '순창', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '완주', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '임실', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '장수', 6);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '진안', 6);
+
+# --제주
+insert into Si_area ( si_id , si_area, do_id ) values (null, '전체', 7 );
+insert into Si_area ( si_id , si_area, do_id ) values (null, '서귀포', 7);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '제주', 7);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '남제주', 7);
+insert into Si_area ( si_id , si_area, do_id ) values (null, '북제주', 7);
+
+
+insert into user values (null,'asdf','1234','홍길동','1111@naver.com','2000-01-01','1.png','0');
+insert into user values (null,'asdf2','1234','장원영','1111@naver.com','2000-01-01','2.png','1');
+insert into user values (null,'asdf3','1234','김민지','1111@naver.com','2000-01-01','3.png','1');
+insert into user values (null,'asdf4','1234','이원서','1111@naver.com','2000-01-01','4.png','0');
+insert into user values (null,'asdf5','1234','이원서','1111@naver.com','2000-01-01','5.png','1');
+insert into user values (null,'asdf6','1234','가나다','1234@gmail.com','1960-01-23','1.png',0);
+insert into user values (null,'asdf7','1234','라마다','1234@gmail.com','1970-01-23','2.png',1);
+insert into user values (null,'asdf8','1234','가나라','1234@gmail.com','1980-01-23','3.png',0);
+insert into user values (null,'asdf9','1234','가영이','1234@gmail.com','1970-01-23','4.png',1);
+insert into user values (null,'asdf10','1234','에이미','1234@gmail.com','1990-01-23','5.png',0);
+insert into user values (null,'qwer','1234','오전반','1234@gmail.com','1999-01-23','1.png',1);
+insert into user values (null,'qwer2','1234','오후반','1234@gmail.com','2000-01-23','1.png',0);
+insert into user values (null,'qwer3','1234','장현준','1234@gmail.com','1996-01-23','1.png',1);
+insert into user values (null,'qwer4','1234','교육부','1234@gmail.com','1992-01-23','1.png',0);
+insert into user values (null,'qwer5','1234','그래픽','1234@gmail.com','1984-01-23','1.png',1);
+insert into user values (null,'qwer6','1234','핸드폰','1234@gmail.com','1989-01-23','1.png',1);
+insert into user values (null,'qwer7','1234','능력단','1234@gmail.com','1979-01-23','1.png',0);
+insert into user values (null,'qwer8','1234','톰캣데','1234@gmail.com','1930-01-23','1.png',1);
+insert into user values (null,'qwer9','1234','모니터','1234@gmail.com','2010-01-23','1.png',1);
+insert into user values (null,'qwer10','1234','정현이','1234@gmail.com','2013-01-23','1.png',0);
+insert into user values (null,'zxcv','1234','안영준','1234@gmail.com','2001-01-23','1.png',1);
+insert into user values (null,'zxcv2','1234','이하니','1234@gmail.com','1886-01-23','1.png',0);
+insert into user values (null,'zxcv3','1234','정혜인','1234@gmail.com','1979-01-23','1.png',1);
+insert into user values (null,'zxcv4','1234','문별이','1234@gmail.com','2004-01-23','1.png',1);
+insert into user values (null,'zxcv5','1234','설아','1234@gmail.com','1950-01-23','1.png',1);
+insert into user values (null,'zxcv6','1234','보나','1234@gmail.com','1960-01-23','1.png',1);
+
+insert into board values (null,"여행장소 추천해주세요~","여행 장소 추천받아요~~","최재영",0,now(),"경기도");
+insert into board values (null,"부산~~~~~~~~~~~~~~~~~~~~~","부산에 다녀왔습니다 어쩌구저쩌구저쩌구어쩌구","황주원",0,now(),"부산");
+insert into board values (null,"여행 다녀왔씁니다!","여행다녀왓는데요~~~~
+
+!!!!!","성명하",0,now(),"강원도");
+insert into board values (null,"경기도에 있는 펜션","드라이브로 가서 힐링하고 오기 딱 좋은곳!
+
+낮부터 간다면 물때를 맞춰서 누에섬을 가보는것도 추천!","김선우",0,now(),"경기도");
+insert into board values (null,"제주도 다녀왔습니다111","제주도 다녀왔는데 너무 이쁘더라구요
+
+여러분도 제주도 한번 놀러가세요!","apples0831",0,now(),"제주도");
+
+insert into board_img values (null,1,"1.jpg");
+insert into board_img values (null,2,"2.jpg");
+insert into board_img values (null,3,"3.jpg");
+insert into board_img values (null,4,"4.jpg");
+insert into board_img values (null,5,"5.jpg");
